@@ -19495,7 +19495,7 @@ require("@vaadin/vaadin-text-field/vaadin-email-field");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <div theme=\"dark\">\n    <h1>Hello World Component</h1>\n    <vaadin-button theme=\"primary\">Test</vaadin-button>\n    <vaadin-email-field>Hello</vaadin-email-field>\n    <vaadin-text-field>Hello</vaadin-text-field>\n    <h1>Welcome to Parcel Base config for LitElement</h1>\n    </div>\n    "]);
+  var data = _taggedTemplateLiteral(["\n    <div>\n    <h1>Hello World Component</h1>\n    <vaadin-button \n      theme=\"primary\"\n    >Test</vaadin-button>\n    <vaadin-email-field\n      error-message=\"Enter a valid email address\"\n    >Hello</vaadin-email-field>\n    <vaadin-text-field>Hello</vaadin-text-field>\n    <h1>Welcome to Parcel Base config for LitElement</h1>\n    <vaadin-button theme=\"primary\"\n      @click=", "\n    >Theme</vaadin-button>\n    </div>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -19542,7 +19542,29 @@ var HelloWorld = /*#__PURE__*/function (_LitElement) {
   _createClass(HelloWorld, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject());
+      var _this = this;
+
+      return (0, _litElement.html)(_templateObject(), function () {
+        _this.changeTheme();
+      });
+    }
+  }, {
+    key: "changeTheme",
+    value: function changeTheme() {
+      var host = this.shadowRoot.host;
+      var documentNode = host.getRootNode();
+      var htmlNode = documentNode.querySelector('main');
+      var theme = htmlNode.getAttribute("theme");
+
+      if (theme === "dark") {
+        console.log("yes the theme is dark");
+        htmlNode.setAttribute("theme", "light");
+      }
+
+      if (theme === "light") {
+        console.log("yes the theme is light");
+        htmlNode.setAttribute("theme", "dark");
+      }
     }
   }]);
 
@@ -19550,12 +19572,7 @@ var HelloWorld = /*#__PURE__*/function (_LitElement) {
 }(_litElement.LitElement);
 
 customElements.define('hello-world', HelloWorld);
-},{"lit-element":"../node_modules/lit-element/lit-element.js","@vaadin/vaadin-button":"../node_modules/@vaadin/vaadin-button/vaadin-button.js","@vaadin/vaadin-text-field/vaadin-email-field":"../node_modules/@vaadin/vaadin-text-field/vaadin-email-field.js"}],"js/theme-selector.js":[function(require,module,exports) {
-matchMedia("(prefers-color-scheme: dark)").addEventListener("chane", function () {
-  var theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  documentElement.setAttribute("theme", theme);
-});
-},{}],"../node_modules/@vaadin/router/dist/vaadin-router.js":[function(require,module,exports) {
+},{"lit-element":"../node_modules/lit-element/lit-element.js","@vaadin/vaadin-button":"../node_modules/@vaadin/vaadin-button/vaadin-button.js","@vaadin/vaadin-text-field/vaadin-email-field":"../node_modules/@vaadin/vaadin-text-field/vaadin-email-field.js"}],"../node_modules/@vaadin/router/dist/vaadin-router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22518,14 +22535,13 @@ var _multipleFiles = _interopRequireDefault(require("./js/multipleFiles.js"));
 
 require("./components/hello-world.js");
 
-require("./js/theme-selector.js");
-
 var _router = require("@vaadin/router");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 console.log("Hello Again", _multipleFiles.default);
 console.log("development");
+//import '@vaadin/vaadin-lumo-styles/all-imports'
 // Initalize App Router (Vaadin Router)
 window.addEventListener('load', function () {
   initRouter();
@@ -22538,7 +22554,7 @@ function initRouter() {
     component: 'hello-world'
   }]);
 }
-},{"./js/multipleFiles.js":"js/multipleFiles.js","./components/hello-world.js":"components/hello-world.js","./js/theme-selector.js":"js/theme-selector.js","@vaadin/router":"../node_modules/@vaadin/router/dist/vaadin-router.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/multipleFiles.js":"js/multipleFiles.js","./components/hello-world.js":"components/hello-world.js","@vaadin/router":"../node_modules/@vaadin/router/dist/vaadin-router.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -22566,7 +22582,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61608" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63210" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

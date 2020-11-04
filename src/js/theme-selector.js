@@ -1,5 +1,5 @@
 matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("chane", () => {
+  .addEventListener("change", () => {
     let theme = 
     matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark" : "light";
