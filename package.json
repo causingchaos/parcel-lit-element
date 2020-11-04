@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@vaadin/router": "^1.7.2",
     "@vaadin/vaadin-button": "^2.4.0",
+    "@vaadin/vaadin-text-field": "^2.8.1",
     "lit-element": "^2.4.0",
     "parcel": "^1.12.4"
   },

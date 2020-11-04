@@ -17492,17 +17492,2010 @@ Object.keys(_vaadinButton2).forEach(function (key) {
     }
   });
 });
-},{"./theme/lumo/vaadin-button.js":"../node_modules/@vaadin/vaadin-button/theme/lumo/vaadin-button.js","./src/vaadin-button.js":"../node_modules/@vaadin/vaadin-button/src/vaadin-button.js"}],"components/hello-world.js":[function(require,module,exports) {
+},{"./theme/lumo/vaadin-button.js":"../node_modules/@vaadin/vaadin-button/theme/lumo/vaadin-button.js","./src/vaadin-button.js":"../node_modules/@vaadin/vaadin-button/src/vaadin-button.js"}],"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-email-field-styles.js":[function(require,module,exports) {
+"use strict";
+
+var _htmlTag = require("@polymer/polymer/lib/utils/html-tag.js");
+
+const $_documentContainer = (0, _htmlTag.html)`<dom-module id="lumo-email-field" theme-for="vaadin-email-field">
+  <template>
+    <style>
+      :not(*):placeholder-shown, /* to prevent broken styles on IE */
+      :host([dir="rtl"]) [part="value"]:placeholder-shown,
+      :host([dir="rtl"]) [part="input-field"] ::slotted(input:placeholder-shown) {
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      :host([dir="rtl"]) [part="value"],
+      :host([dir="rtl"]) [part="input-field"] ::slotted(input) {
+        --_lumo-text-field-overflow-mask-image: linear-gradient(to left, transparent, #000 1.25em);
+      }
+    </style>
+  </template>
+</dom-module>`;
+document.head.appendChild($_documentContainer.content);
+},{"@polymer/polymer/lib/utils/html-tag.js":"../node_modules/@polymer/polymer/lib/utils/html-tag.js"}],"../node_modules/@vaadin/vaadin-lumo-styles/mixins/required-field.js":[function(require,module,exports) {
+"use strict";
+
+require("../color.js");
+
+require("../spacing.js");
+
+require("../style.js");
+
+require("../typography.js");
+
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<dom-module id="lumo-required-field">
+  <template>
+    <style>
+      [part="label"] {
+        align-self: flex-start;
+        color: var(--lumo-secondary-text-color);
+        font-weight: 500;
+        font-size: var(--lumo-font-size-s);
+        margin-left: calc(var(--lumo-border-radius-m) / 4);
+        transition: color 0.2s;
+        line-height: 1;
+        padding-bottom: 0.5em;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: relative;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      :host([has-label])::before {
+        margin-top: calc(var(--lumo-font-size-s) * 1.5);
+      }
+
+      :host([has-label]) {
+        padding-top: var(--lumo-space-m);
+      }
+
+      :host([required]) [part="label"] {
+        padding-right: 1em;
+      }
+
+      [part="label"]::after {
+        content: var(--lumo-required-field-indicator, "•");
+        transition: opacity 0.2s;
+        opacity: 0;
+        color: var(--lumo-primary-text-color);
+        position: absolute;
+        right: 0;
+        width: 1em;
+        text-align: center;
+      }
+
+      :host([required]:not([has-value])) [part="label"]::after {
+        opacity: 1;
+      }
+
+      :host([invalid]) [part="label"]::after {
+        color: var(--lumo-error-text-color);
+      }
+
+      [part="error-message"] {
+        margin-left: calc(var(--lumo-border-radius-m) / 4);
+        font-size: var(--lumo-font-size-xs);
+        line-height: var(--lumo-line-height-xs);
+        color: var(--lumo-error-text-color);
+        will-change: max-height;
+        transition: 0.4s max-height;
+        max-height: 5em;
+      }
+
+      /* Margin that doesn’t reserve space when there’s no error message */
+      [part="error-message"]:not(:empty)::before,
+      [part="error-message"]:not(:empty)::after {
+        content: "";
+        display: block;
+        height: 0.4em;
+      }
+
+      :host(:not([invalid])) [part="error-message"] {
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      /* RTL specific styles */
+
+      :host([dir="rtl"]) [part="label"] {
+        margin-left: 0;
+        margin-right: calc(var(--lumo-border-radius-m) / 4);
+      }
+
+      :host([required][dir="rtl"]) [part="label"] {
+        padding-left: 1em;
+        padding-right: 0;
+      }
+
+      :host([dir="rtl"]) [part="label"]::after {
+        right: auto;
+        left: 0;
+      }
+
+      :host([dir="rtl"]) [part="error-message"] {
+        margin-left: 0;
+        margin-right: calc(var(--lumo-border-radius-m) / 4);
+      }
+
+    </style>
+  </template>
+</dom-module>`;
+document.head.appendChild($_documentContainer.content);
+},{"../color.js":"../node_modules/@vaadin/vaadin-lumo-styles/color.js","../spacing.js":"../node_modules/@vaadin/vaadin-lumo-styles/spacing.js","../style.js":"../node_modules/@vaadin/vaadin-lumo-styles/style.js","../typography.js":"../node_modules/@vaadin/vaadin-lumo-styles/typography.js"}],"../node_modules/@vaadin/vaadin-lumo-styles/font-icons.js":[function(require,module,exports) {
+"use strict";
+
+require("@polymer/polymer/lib/elements/custom-style.js");
+
+require("./version.js");
+
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<custom-style>
+  <style>
+    @font-face {
+      font-family: 'lumo-icons';
+      src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAABEcAAsAAAAAIiwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADsAAABUIIslek9TLzIAAAFEAAAAQwAAAFZAIUuKY21hcAAAAYgAAAD4AAADrsCU8d5nbHlmAAACgAAAC2MAABd4h9To2WhlYWQAAA3kAAAAMAAAADZa/6SsaGhlYQAADhQAAAAdAAAAJAbpA35obXR4AAAONAAAABAAAACspBAAAGxvY2EAAA5EAAAAWAAAAFh55IAsbWF4cAAADpwAAAAfAAAAIAFKAXBuYW1lAAAOvAAAATEAAAIuUUJZCHBvc3QAAA/wAAABKwAAAelm8SzVeJxjYGRgYOBiMGCwY2BycfMJYeDLSSzJY5BiYGGAAJA8MpsxJzM9kYEDxgPKsYBpDiBmg4gCACY7BUgAeJxjYGS+yDiBgZWBgamKaQ8DA0MPhGZ8wGDIyAQUZWBlZsAKAtJcUxgcXjG+0mIO+p/FEMUcxDANKMwIkgMABn8MLQB4nO3SWW6DMABF0UtwCEnIPM/zhLK8LqhfXRybSP14XUYtHV9hGYQwQBNIo3cUIPkhQeM7rib1ekqnXg981XuC1qvy84lzojleh3puxL0hPjGjRU473teloEefAUNGjJkwZcacBUtWrNmwZceeA0dOnLlw5cadB09elPGhGf+j0NTI/65KfXerT6JhqKnpRKtgOpuqaTrtKjPUlqHmhto21I7pL6i6hlqY3q7qGWrfUAeGOjTUkaGODXViqFNDnRnq3FAXhro01JWhrg11Y6hbQ90Z6t5QD4Z6NNSToZ4N9WKoV0O9GerdUB+G+jTUl6GWRvkL24BkEXictVh9bFvVFb/nxvbz+7Rf/N6zHcd2bCfP+Wgc1Z9N0jpNnEL6kbRVS6HA2hQYGh9TGR1CbCqa2rXrWOkQE/sHNJgmtZvoVNZqE1B1DNHxzTQxCehUTYiJTQyENui0qSLezr3PduyQfgmRWOfde8+9551z7rnn/O4jLoJ/bRP0UaKQMLFJjpBAvphLZC3Dk0ok7WBzR2/upJs7Ryw/nfFbln/uuN/apCvwrKLrSvUqRufbm5pn0fs0w4gYxnGVP6qHnO4bWiDQGQgwtS6lm3lB3QoX1M2vwEmuzirF39y+Es2+DJ8d1pkyqBIqoze3D1+Zz4DrFoazxI8dWwMrDlZ2DMqQAR9AROsJU+2cmlTPazTco52F1xTa2a2+K8vvq92dVHmtLoPeQX/AZPRYGthDYOeZjBjKoFsVGulR3lWU95WeCK44qHU7MhWUGUKZDT3oKUcG2GWuh+EDDfUYA/jhAhl0TOsJNYSEu7mQmi3UzfXwZKA4BsVsHLXQYGgRW95uEtpJ1Vfn9XiLriRBlFEqxsDjA09yCNUoQxxwd7KWSTt2y3GTKiflqHRSoWZc3m11Wa/fJdFgXD4sSYfleJBKd8GMz7J8dZn/cGRCcKGDnA2Ge3fKzcvlnTDNthGWLXzX/WaXtUAmRgeLlHSr30r0G9UTXMb0AtmwzOoy73fkSlHZkduw/TYuU9cAD4YutPoxTTsA3797wVr4Z/1NC5zARHr4vtxJjxIfiZMhMkbWk+14BnJZKwqGZwDfswLyxWDSg11rFLJF7Nopxjd1h1/QOT+oezgfu3Yq+Hk+duf5x+40o1GTkaIgikK/IEnC6aYxCUBaZJSN4XTYFjU/YMNIKqJwhDGOCCI8FDXnXmXjtGhGJyShqjAOnBOkW2JG9S7GgYeMWAU5JzhnWmBOaOM+CKEPoqSfFDC2Unq+DLlUgUVUFFLZGJg6jtlojsdsa8kPObPuJdi5dnBdBsLJMGTWDa4t2JvtwuPo9s+Y86suv/W33QG1rAaOAUV+vx4K6f2D04PVKlC7WLSrZzAi45ZV6lIC7WoXqmRyvUqoVwrzUoVsIjeTXWQv+RH5GTlBXiB/In8ln0IbBCAFOajAJrgZYyOHWqOfUe/aHjI12R6OQo1jCgt215l+4f6XPb+0MNou0V+43n2F77tSfRb24d7zitgnKmvYHs69zugaPvBwv6ioXkb2LdL65Atw51uLkXlu1bhMMRcXSPcYoqKIRlh34lQP8/5JbuUFye4vxD6/6MxFF11C0uVLr9Ulgw44tS3pMViNLUExbycFgLIct+QDMibRimx1ydUz8FXZiuOIDBOMVX2nUZc+huNE5XUJ81uiJoiabwqaVF0uacKbau/pl4R2VW0XXlJra6boVrYG646TF5NYzwy4vjENVrDlcNpZPl8DH6XX8XWCx0mvWVZY6KFLrvsY66/zPict5FnxaNUR/juvZCM3TvD60E2W1tZizbXTPDuabcm0nbbzpWKpmA1ayBQ8giedLUM+A0kNjBjQjmuYz7YrgIXYvmF63ZLBwSXrpn9Tb9wwdd/U1H0PMQK3XcO8ul3WT7PyPPdpy0TemKxNRcJNauiXJnnUDpUppQWs4SnUIy0EESGYqJYQLGHxzaGWwVIaS6Y7mQFM8ZjYDQ3axjf61SWjU33JwOZA1pwaG1L9mzf71aHRdX1JHw6Fp0aXhNwbqyeGNg4NbdzGCBxoz4ZXjy4Nu69Zr6sDY6vMrLU5nA1P8JkbdWXJ6ERfMryvNh1JfQ9+T4dIhGvK9w3dxjBBzatsQ/MlOHVIDnYpDz6odAXlQ01t2Pa5Iafd8MMpxAeDKP0C6CjgVLT5osB6icUx01lWjXxzT/GyRF2welEM5Z/7jG3VjQ1SrNn5IbyzOG5dobB3/QHxyZvsXcoz8IoEwS7plCg+zxHQk424q9BfEpkESJbFHQusDBSWFkuBkoPO0kLKwRVYjxGXlHTcTDQMJ/H6TX9afkO7mnraTO1feTnZAXLu4cp7HAXMmNG1yeFk9TgS/NHhZR/4QoBTr/ZB+6hCgyl15Nq1UbN6nE1/ZnP1U2cizCBpvs8cJQZJ4LkYx5N/yZPAUZNQQ0V4f3BQllWrK3YRzl30dOT6RVn2upNur6woSa8CqpdT/aKnBM4o3jNur9d9xqtUT6veBEt9Ca9at+ERzEEhUkR8sa5mQ4aVvJoVeEA8zI4ei5mULXFGyU7z/6TAeYLVcpzSWZY8PYYF5yrTV60sT0+XV141vX++Wf16V2bFeGVPZXxFpkvyeKTWLlzfW0mnKxsY6Y3294/0998SCfX1blm5pbcvFGlq/r07MRAMhYIDiW5JFKWW3vdrEpCsZSJG+om7Zu/PSScZJhNkLbmW5Wsr12pWqW5zKtlwRS4bFOxUw17mCzy6lskCDl1WYOGWDYrADrMA7BDDweWWNd5koiJnR1dz+ytLP2q0SqPB1lnK2ccB7RYe4FSoPks3iB3t4txTSHctb2sy1ivk0pvHuCNm6w1f6wxv3+OCgN78LqdQnUVh7R0oTAp0zOf2rbW770Vu5C2dIyGdTnHo8zSji7dppj0USoVCz+lhRMTh53Teq9VbGfbjuSbAooSdXayY4PYHg374C6f7gl1B/DXuJ4/QXxOBdJFJspFsI3egpoWUUCjlTIFnNYNl+ZyZKmBeYKGHkD1QyDlhaKbKwKcIJqJ4TLJ2OmdY/JWXae4DdGBw8HZ7eXcgFF2zr2SoalDry5iKqoa0Puhe3hPQ2s3elTYM+MI+n3rK0KgL7/La3GeMLt6m7u912vGnvtORiIa0qBmhqVi+XW9XNBmqb8eVgKzIHfGI5bNoG7X0UCzeISmqIcO/nY8FH7U8avX9fx/ST+hx0sezPw9Qy8Mum3GWf2N4Uy/yIYGVBXbJHWIZp7dfTcptdMTr9Qmq7DaiK/ukqCL4kt4RUfS5XPnMtmT22/mQFqF7emSqtrlu8SVElxDRJrZODkpuwe0VfTfjdEp1f7A7v+fozNBXUJ/6WTuK2TtFlpFVZAZ3LcFvUi1Z2p2YT+EMAkGJVStOzLTAPg4IqWIAlzRSjOBkl2zxj3TKycpzT/MnvX3uaSMWM+gU0rkXjohhefVRMaps3/kLMSKv23lT23uxQrkQjyOJleMDsdhAnD6ZGElWZ5MjCXzCE/hkWX+WF4knzGhVOyK2eQZekV3eyo0zL8kuYWCnDCvjjhAkcTPOBDXVdoav3HVcFnQjLvtV9S2p0zA6JegPwMQxt+yFb3ll9zGlq/5dRKb3cEyQYoaNYpharJ7xCB7AWxsLY3jjZXY0XsZj0Wjwc9I6PP/dKABnCZaqHpaZEACxk4ZeLZSKNgZABl+lYQX1sJQOSX3n6r410evcoud5JeAGUXVP9H1tZOKejTq4Ono0z0erro1FrnOpohva1d/hTdtVsQdKN5W9RlT3NjD0nznyKNTgKAMfWNWcyodV0IGLPIHOF0o4JyqufaK4z6WIIzuGh3d8c8cwQg8ER+OVxyrjdm8vNuhts4LoOihGxIMuUdgzwiYN7xhh1+oZnJNuTG7gQZvu4XWZ9GAZZjGEubwePqYhtKDTH+9VQkl17/iGybsnJ+8+sKtyPrcll9ty65Zsdst/9iqpEKh7M5VdBxh3csOdNc6tW3I1uyM1PzOXegSOrLFsFNI2O27M+TF2ApnN9MUv5ud6LjxIvEQnHRzxIu4IsA9MLFkJn2tcZoZ7ON7dXe7ujrc8HrusPKamlqXwd77lQUuLpilau4PUMapueBb7irU4RoUXEYXuVuIGlRGmOp+2lNkaRPVziOqmlaZvaqG4dFgSj0jxEJWrv12IUWntmw+rfQarRE0Aph4ocI6nlUlGqs+u3/+T/ethW62PpHp2eHbZstnh/wOO95yDAHicY2BkYGAA4pmJ6QHx/DZfGbiZXwBFGGpUNzQi6P+vmacy3QJyORiYQKIANoULVXicY2BkYGAO+p8FJF8wAAHzVAZGBlSgDQBW9gNvAAAAeJxjYGBgYH4xNDAAzwQmjwAAAAAATgCaAOgBCgEsAU4BcAGaAcQB7gIaApwC6ASaBLwE1gTyBQ4FKgV6BdAF/gZEBmYGtgcYB5AIGAhSCGoI/glGCb4J2goECjwKggq4CvALUAuWC7x4nGNgZGBg0GZMYRBlAAEmIOYCQgaG/2A+AwAYlAG8AHicbZE9TsMwGIbf9A/RSggEYmHxAgtq+jN2ZGj3Dt3T1GlTOXHkuBW9AyfgEByCgTNwCA7BW/NJlVBtyd/jx+8XKwmAa3whwnFE6Ib1OBq44O6Pm6Qb4Rb5QbiNHh6FO/RD4S6eMRHu4RaaT4halzR3eBVu4Apvwk36d+EW+UO4jXt8Cnfov4W7WOBHuIen6MXsCtvPU1vWc73emcSdxIkW2tW5LdUoHp7kTJfaJV6v1PKg6v167H2mMmcLNbWl18ZYVTm71amPN95Xk8EgEx+ntoDBDgUs+siRspaoMef7rukNEriziXNuwS7Hmoe9wggxv+e55IzJMqQTeNYV00scuNbY8+YxrUfGfcaMZb/CNPQe04bT0lThbEuT0sfYhK6K/23Amf3Lx+H24hcj4GScAAAAeJxtjtlugzAQRbkJUEJIuu/7vqR8lGNPAcWx0YAb5e/LklR96EgenSufGY038PqKvf9rhgGG8BEgxA4ijBBjjAQTTLGLPezjAIc4wjFOcIoznOMCl7jCNW5wizvc4wGPeMIzXvCKN7zjAzN8eonQRWZSSaYmjvug6ase98hFltexMJmmVNmV2WBvdNgZUc+ujAWzXW3UDnu1w43asStHc8GpzAXX/py0jqTQZJTgkcxJLpaCF0lD32xNt+43tAsn29Dft02uDKS2cjGUNgsk26qK2lFthYoU27INPqmiDqg5goe0pqR5qSoqMdek/CUZFywL46rEsiImleqiqoMyt4baXlu/1GLdNFf5zbcNmdr1YUWCZe47o+zUmb/DoStbw3cVsef9ALjjiPQA) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    html {
+      --lumo-icons-align-center: "\\ea01";
+      --lumo-icons-align-left: "\\ea02";
+      --lumo-icons-align-right: "\\ea03";
+      --lumo-icons-angle-down: "\\ea04";
+      --lumo-icons-angle-left: "\\ea05";
+      --lumo-icons-angle-right: "\\ea06";
+      --lumo-icons-angle-up: "\\ea07";
+      --lumo-icons-arrow-down: "\\ea08";
+      --lumo-icons-arrow-left: "\\ea09";
+      --lumo-icons-arrow-right: "\\ea0a";
+      --lumo-icons-arrow-up: "\\ea0b";
+      --lumo-icons-bar-chart: "\\ea0c";
+      --lumo-icons-bell: "\\ea0d";
+      --lumo-icons-calendar: "\\ea0e";
+      --lumo-icons-checkmark: "\\ea0f";
+      --lumo-icons-chevron-down: "\\ea10";
+      --lumo-icons-chevron-left: "\\ea11";
+      --lumo-icons-chevron-right: "\\ea12";
+      --lumo-icons-chevron-up: "\\ea13";
+      --lumo-icons-clock: "\\ea14";
+      --lumo-icons-cog: "\\ea15";
+      --lumo-icons-cross: "\\ea16";
+      --lumo-icons-download: "\\ea17";
+      --lumo-icons-dropdown: "\\ea18";
+      --lumo-icons-edit: "\\ea19";
+      --lumo-icons-error: "\\ea1a";
+      --lumo-icons-eye: "\\ea1b";
+      --lumo-icons-eye-disabled: "\\ea1c";
+      --lumo-icons-menu: "\\ea1d";
+      --lumo-icons-minus: "\\ea1e";
+      --lumo-icons-ordered-list: "\\ea1f";
+      --lumo-icons-phone: "\\ea20";
+      --lumo-icons-photo: "\\ea21";
+      --lumo-icons-play: "\\ea22";
+      --lumo-icons-plus: "\\ea23";
+      --lumo-icons-redo: "\\ea24";
+      --lumo-icons-reload: "\\ea25";
+      --lumo-icons-search: "\\ea26";
+      --lumo-icons-undo: "\\ea27";
+      --lumo-icons-unordered-list: "\\ea28";
+      --lumo-icons-upload: "\\ea29";
+      --lumo-icons-user: "\\ea2a";
+    }
+  </style>
+</custom-style>`;
+document.head.appendChild($_documentContainer.content);
+/* NOTICE: Generated with 'gulp icons' */
+
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+
+;
+},{"@polymer/polymer/lib/elements/custom-style.js":"../node_modules/@polymer/polymer/lib/elements/custom-style.js","./version.js":"../node_modules/@vaadin/vaadin-lumo-styles/version.js"}],"../node_modules/@vaadin/vaadin-lumo-styles/mixins/field-button.js":[function(require,module,exports) {
+"use strict";
+
+require("../color.js");
+
+require("../font-icons.js");
+
+require("../sizing.js");
+
+require("../style.js");
+
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = `<dom-module id="lumo-field-button">
+  <template>
+    <style>
+      [part\$="button"] {
+        flex: none;
+        width: 1em;
+        height: 1em;
+        line-height: 1;
+        font-size: var(--lumo-icon-size-m);
+        text-align: center;
+        color: var(--lumo-contrast-60pct);
+        transition: 0.2s color;
+        cursor: var(--lumo-clickable-cursor);
+      }
+
+      :host(:not([readonly])) [part\$="button"]:hover {
+        color: var(--lumo-contrast-90pct);
+      }
+
+      :host([disabled]) [part\$="button"],
+      :host([readonly]) [part\$="button"] {
+        color: var(--lumo-contrast-20pct);
+      }
+
+      [part\$="button"]::before {
+        font-family: "lumo-icons";
+        display: block;
+      }
+    </style>
+  </template>
+</dom-module>`;
+document.head.appendChild($_documentContainer.content);
+},{"../color.js":"../node_modules/@vaadin/vaadin-lumo-styles/color.js","../font-icons.js":"../node_modules/@vaadin/vaadin-lumo-styles/font-icons.js","../sizing.js":"../node_modules/@vaadin/vaadin-lumo-styles/sizing.js","../style.js":"../node_modules/@vaadin/vaadin-lumo-styles/style.js"}],"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-text-field-styles.js":[function(require,module,exports) {
+"use strict";
+
+require("@vaadin/vaadin-lumo-styles/color.js");
+
+require("@vaadin/vaadin-lumo-styles/sizing.js");
+
+require("@vaadin/vaadin-lumo-styles/spacing.js");
+
+require("@vaadin/vaadin-lumo-styles/style.js");
+
+require("@vaadin/vaadin-lumo-styles/typography.js");
+
+require("@vaadin/vaadin-lumo-styles/mixins/required-field.js");
+
+require("@vaadin/vaadin-lumo-styles/font-icons.js");
+
+require("@vaadin/vaadin-lumo-styles/mixins/field-button.js");
+
+var _htmlTag = require("@polymer/polymer/lib/utils/html-tag.js");
+
+const $_documentContainer = (0, _htmlTag.html)`<dom-module id="lumo-text-field" theme-for="vaadin-text-field">
+  <template>
+    <style include="lumo-required-field lumo-field-button">
+      :host {
+        --lumo-text-field-size: var(--lumo-size-m);
+        color: var(--lumo-body-text-color);
+        font-size: var(--lumo-font-size-m);
+        font-family: var(--lumo-font-family);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
+        padding: var(--lumo-space-xs) 0;
+      }
+
+      :host::before {
+        height: var(--lumo-text-field-size);
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      :host([focused]:not([readonly])) [part="label"] {
+        color: var(--lumo-primary-text-color);
+      }
+
+      :host([has-helper]) [part="helper-text"]::before {
+        content: "";
+        display: block;
+        height: 0.4em;
+      }
+
+      [part="helper-text"],
+      [part="helper-text"] ::slotted(*) {
+        display: block;
+        color: var(--lumo-secondary-text-color);
+        font-size: var(--lumo-font-size-xs);
+        line-height: var(--lumo-line-height-xs);
+        margin-left: calc(var(--lumo-border-radius-m) / 4);
+        transition: color 0.2s;
+      }
+
+      [part="value"],
+      [part="input-field"] ::slotted(input),
+      [part="input-field"] ::slotted(textarea),
+      /* Slotted by vaadin-select-text-field */
+      [part="input-field"] ::slotted([part="value"]) {
+        cursor: inherit;
+        min-height: var(--lumo-text-field-size);
+        padding: 0 0.25em;
+        --_lumo-text-field-overflow-mask-image: linear-gradient(to left, transparent, #000 1.25em);
+        -webkit-mask-image: var(--_lumo-text-field-overflow-mask-image);
+      }
+
+      [part="value"]:focus,
+      :host([focused]) [part="input-field"] ::slotted(input),
+      :host([focused]) [part="input-field"] ::slotted(textarea) {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      /*
+        TODO: CSS custom property in \`mask-image\` causes crash in Edge
+        see https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15415089/
+      */
+      @-moz-document url-prefix() {
+        [part="value"],
+        [part="input-field"] ::slotted(input),
+        [part="input-field"] ::slotted(textarea),
+        [part="input-field"] ::slotted([part="value"]) {
+          mask-image: var(--_lumo-text-field-overflow-mask-image);
+        }
+      }
+
+      [part="value"]::-webkit-input-placeholder {
+        color: inherit;
+        transition: opacity 0.175s 0.05s;
+        opacity: 0.5;
+      }
+
+      [part="value"]:-ms-input-placeholder {
+        color: inherit;
+        opacity: 0.5;
+      }
+
+      [part="value"]::-moz-placeholder {
+        color: inherit;
+        transition: opacity 0.175s 0.05s;
+        opacity: 0.5;
+      }
+
+      [part="value"]::placeholder {
+        color: inherit;
+        transition: opacity 0.175s 0.1s;
+        opacity: 0.5;
+      }
+
+      [part="input-field"] {
+        border-radius: var(--lumo-border-radius);
+        background-color: var(--lumo-contrast-10pct);
+        padding: 0 calc(0.375em + var(--lumo-border-radius) / 4 - 1px);
+        font-weight: 500;
+        line-height: 1;
+        position: relative;
+        cursor: text;
+        box-sizing: border-box;
+      }
+
+      /* Used for hover and activation effects */
+      [part="input-field"]::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background-color: var(--lumo-contrast-50pct);
+        opacity: 0;
+        transition: transform 0.15s, opacity 0.2s;
+        transform-origin: 100% 0;
+      }
+
+      /* Hover */
+
+      :host(:hover:not([readonly]):not([focused])) [part="label"],
+      :host(:hover:not([readonly])) [part="helper-text"],
+      :host(:hover:not([readonly])) [part="helper-text"] ::slotted(*) {
+        color: var(--lumo-body-text-color);
+      }
+
+      :host(:hover:not([readonly]):not([focused])) [part="input-field"]::after {
+        opacity: 0.1;
+      }
+
+      /* Touch device adjustment */
+      @media (pointer: coarse) {
+        :host(:hover:not([readonly]):not([focused])) [part="label"] {
+          color: var(--lumo-secondary-text-color);
+        }
+
+        :host(:hover:not([readonly]):not([focused])) [part="input-field"]::after {
+          opacity: 0;
+        }
+
+        :host(:active:not([readonly]):not([focused])) [part="input-field"]::after {
+          opacity: 0.2;
+        }
+      }
+
+      /* Trigger when not focusing using the keyboard */
+      :host([focused]:not([focus-ring]):not([readonly])) [part="input-field"]::after {
+        transform: scaleX(0);
+        transition-duration: 0.15s, 1s;
+      }
+
+      /* Focus-ring */
+
+      :host([focus-ring]) [part="input-field"] {
+        box-shadow: 0 0 0 2px var(--lumo-primary-color-50pct);
+      }
+
+      /* Read-only and disabled */
+      :host([readonly]) [part="value"]::-webkit-input-placeholder,
+      :host([disabled]) [part="value"]::-webkit-input-placeholder {
+        opacity: 0;
+      }
+
+      :host([readonly]) [part="value"]:-ms-input-placeholder,
+      :host([disabled]) [part="value"]:-ms-input-placeholder {
+        opacity: 0;
+      }
+
+      :host([readonly]) [part="value"]::-moz-placeholder,
+      :host([disabled]) [part="value"]::-moz-placeholder {
+        opacity: 0;
+      }
+
+      :host([readonly]) [part="value"]::placeholder,
+      :host([disabled]) [part="value"]::placeholder {
+        opacity: 0;
+      }
+
+      /* Read-only */
+
+      :host([readonly]) [part="input-field"] {
+        color: var(--lumo-secondary-text-color);
+        background-color: transparent;
+        cursor: default;
+      }
+
+      :host([readonly]) [part="input-field"]::after {
+        background-color: transparent;
+        opacity: 1;
+        border: 1px dashed var(--lumo-contrast-30pct);
+      }
+
+      /* Disabled style */
+
+      :host([disabled]) {
+        pointer-events: none;
+      }
+
+      :host([disabled]) [part="input-field"] {
+        background-color: var(--lumo-contrast-5pct);
+      }
+
+      :host([disabled]) [part="label"],
+      :host([disabled]) [part="helper-text"],
+      :host([disabled]) [part="value"],
+      :host([disabled]) [part="input-field"] ::slotted(*) {
+        color: var(--lumo-disabled-text-color);
+        -webkit-text-fill-color: var(--lumo-disabled-text-color);
+      }
+
+      /* Invalid style */
+
+      :host([invalid]) [part="input-field"] {
+        background-color: var(--lumo-error-color-10pct);
+      }
+
+      :host([invalid]) [part="input-field"]::after {
+        background-color: var(--lumo-error-color-50pct);
+      }
+
+      :host([invalid][focus-ring]) [part="input-field"] {
+        box-shadow: 0 0 0 2px var(--lumo-error-color-50pct);
+      }
+
+      :host([input-prevented]) [part="input-field"] {
+        color: var(--lumo-error-text-color);
+      }
+
+      /* Small theme */
+
+      :host([theme~="small"]) {
+        font-size: var(--lumo-font-size-s);
+        --lumo-text-field-size: var(--lumo-size-s);
+      }
+
+      :host([theme~="small"][has-label]) [part="label"] {
+        font-size: var(--lumo-font-size-xs);
+      }
+
+      :host([theme~="small"][has-label]) [part="error-message"] {
+        font-size: var(--lumo-font-size-xxs);
+      }
+
+      /* Text align */
+
+      :host([theme~="align-left"]) [part="value"] {
+        text-align: left;
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      :host([theme~="align-center"]) [part="value"] {
+        text-align: center;
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      :host([theme~="align-right"]) [part="value"] {
+        text-align: right;
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      @-moz-document url-prefix() {
+        /* Firefox is smart enough to align overflowing text to right */
+        :host([theme~="align-right"]) [part="value"] {
+          --_lumo-text-field-overflow-mask-image: linear-gradient(to right, transparent 0.25em, #000 1.5em);
+        }
+      }
+
+      @-moz-document url-prefix() {
+        /* Firefox is smart enough to align overflowing text to right */
+        :host([theme~="align-left"]) [part="value"] {
+          --_lumo-text-field-overflow-mask-image: linear-gradient(to left, transparent 0.25em, #000 1.5em);
+        }
+      }
+      /* helper-text position */
+
+      :host([has-helper][theme~="helper-above-field"]) [part="helper-text"]::before {
+        display: none;
+      }
+
+      :host([has-helper][theme~="helper-above-field"]) [part="helper-text"]::after {
+        content: "";
+        display: block;
+        height: 0.4em;
+      }
+
+      :host([has-helper][theme~="helper-above-field"]) [part="label"] {
+        order: 0;
+        padding-bottom: 0.4em;
+      }
+
+      :host([has-helper][theme~="helper-above-field"]) [part="helper-text"] {
+        order: 1;
+      }
+
+      :host([has-helper][theme~="helper-above-field"]) [part="input-field"] {
+        order: 2;
+      }
+
+      :host([has-helper][theme~="helper-above-field"]) [part="error-message"] {
+        order: 3;
+      }
+
+      /* Slotted content */
+
+      [part="input-field"] ::slotted(:not([part]):not(iron-icon):not(input):not(textarea)) {
+        color: var(--lumo-secondary-text-color);
+        font-weight: 400;
+      }
+
+      /* Slotted icons */
+
+      [part="input-field"] ::slotted(iron-icon) {
+        color: var(--lumo-contrast-60pct);
+        width: var(--lumo-icon-size-m);
+        height: var(--lumo-icon-size-m);
+      }
+
+      /* Vaadin icons are based on a 16x16 grid (unlike Lumo and Material icons with 24x24), so they look too big by default */
+      [part="input-field"] ::slotted(iron-icon[icon^="vaadin:"]) {
+        padding: 0.25em;
+        box-sizing: border-box !important;
+      }
+
+      [part="clear-button"]::before {
+        content: var(--lumo-icons-cross);
+      }
+
+      /* RTL specific styles */
+
+      :host([dir="rtl"]) [part="input-field"]::after {
+        transform-origin: 0% 0;
+      }
+
+      :host([dir="rtl"]) [part="value"],
+      :host([dir="rtl"]) [part="input-field"] ::slotted(input),
+      :host([dir="rtl"]) [part="input-field"] ::slotted(textarea) {
+        --_lumo-text-field-overflow-mask-image: linear-gradient(to right, transparent, #000 1.25em);
+      }
+
+      :host([dir="rtl"]) [part="value"]:focus,
+      :host([focused][dir="rtl"]) [part="input-field"] ::slotted(input),
+      :host([focused][dir="rtl"]) [part="input-field"] ::slotted(textarea) {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      @-moz-document url-prefix() {
+        :host([dir="rtl"]) [part="value"],
+        :host([dir="rtl"]) [part="input-field"] ::slotted(input),
+        :host([dir="rtl"]) [part="input-field"] ::slotted(textarea),
+        :host([dir="rtl"]) [part="input-field"] ::slotted([part="value"]) {
+          mask-image: var(--_lumo-text-field-overflow-mask-image);
+        }
+      }
+
+      :host([theme~="align-left"][dir="rtl"]) [part="value"] {
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      :host([theme~="align-center"][dir="rtl"]) [part="value"] {
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      :host([theme~="align-right"][dir="rtl"]) [part="value"] {
+        --_lumo-text-field-overflow-mask-image: none;
+      }
+
+      @-moz-document url-prefix() {
+        /* Firefox is smart enough to align overflowing text to right */
+        :host([theme~="align-right"][dir="rtl"]) [part="value"] {
+          --_lumo-text-field-overflow-mask-image: linear-gradient(to right, transparent 0.25em, #000 1.5em);
+        }
+      }
+
+      @-moz-document url-prefix() {
+        /* Firefox is smart enough to align overflowing text to right */
+        :host([theme~="align-left"][dir="rtl"]) [part="value"] {
+          --_lumo-text-field-overflow-mask-image: linear-gradient(to left, transparent 0.25em, #000 1.5em);
+        }
+      }
+    </style>
+  </template>
+</dom-module>`;
+document.head.appendChild($_documentContainer.content);
+},{"@vaadin/vaadin-lumo-styles/color.js":"../node_modules/@vaadin/vaadin-lumo-styles/color.js","@vaadin/vaadin-lumo-styles/sizing.js":"../node_modules/@vaadin/vaadin-lumo-styles/sizing.js","@vaadin/vaadin-lumo-styles/spacing.js":"../node_modules/@vaadin/vaadin-lumo-styles/spacing.js","@vaadin/vaadin-lumo-styles/style.js":"../node_modules/@vaadin/vaadin-lumo-styles/style.js","@vaadin/vaadin-lumo-styles/typography.js":"../node_modules/@vaadin/vaadin-lumo-styles/typography.js","@vaadin/vaadin-lumo-styles/mixins/required-field.js":"../node_modules/@vaadin/vaadin-lumo-styles/mixins/required-field.js","@vaadin/vaadin-lumo-styles/font-icons.js":"../node_modules/@vaadin/vaadin-lumo-styles/font-icons.js","@vaadin/vaadin-lumo-styles/mixins/field-button.js":"../node_modules/@vaadin/vaadin-lumo-styles/mixins/field-button.js","@polymer/polymer/lib/utils/html-tag.js":"../node_modules/@polymer/polymer/lib/utils/html-tag.js"}],"../node_modules/@vaadin/vaadin-text-field/src/vaadin-text-field-mixin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TextFieldMixin = void 0;
+
+var _async = require("@polymer/polymer/lib/utils/async.js");
+
+var _debounce = require("@polymer/polymer/lib/utils/debounce.js");
+
+var _htmlTag = require("@polymer/polymer/lib/utils/html-tag.js");
+
+/**
+@license
+Copyright (c) 2017 Vaadin Ltd.
+This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+*/
+const $_documentContainer = (0, _htmlTag.html)`<dom-module id="vaadin-text-field-shared-styles">
+  <template>
+    <style>
+      :host {
+        display: inline-flex;
+        outline: none;
+      }
+
+      :host::before {
+        content: "\\2003";
+        width: 0;
+        display: inline-block;
+        /* Size and position this element on the same vertical position as the input-field element
+           to make vertical align for the host element work as expected */
+      }
+
+      :host([hidden]) {
+        display: none !important;
+      }
+
+      .vaadin-text-field-container,
+      .vaadin-text-area-container {
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        max-width: 100%;
+        width: var(--vaadin-text-field-default-width, 12em);
+      }
+
+      [part="label"]:empty {
+        display: none;
+      }
+
+      [part="input-field"] {
+        display: flex;
+        align-items: center;
+        flex: auto;
+      }
+
+      .vaadin-text-field-container [part="input-field"] {
+        flex-grow: 0;
+      }
+
+      /* Reset the native input styles */
+      [part="value"],
+      [part="input-field"] ::slotted(input),
+      [part="input-field"] ::slotted(textarea) {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        min-width: 0;
+        font: inherit;
+        font-size: 1em;
+        line-height: normal;
+        color: inherit;
+        background-color: transparent;
+        /* Disable default invalid style in Firefox */
+        box-shadow: none;
+      }
+
+      [part="input-field"] ::slotted(*) {
+        flex: none;
+      }
+
+      [part="value"],
+      [part="input-field"] ::slotted(input),
+      [part="input-field"] ::slotted(textarea),
+      /* Slotted by vaadin-select-text-field */
+      [part="input-field"] ::slotted([part="value"]) {
+        flex: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+      [part="input-field"] ::slotted(textarea) {
+        resize: none;
+      }
+
+      [part="value"]::-ms-clear,
+      [part="input-field"] ::slotted(input)::-ms-clear {
+        display: none;
+      }
+
+      [part="clear-button"] {
+        cursor: default;
+      }
+
+      [part="clear-button"]::before {
+        content: "✕";
+      }
+    </style>
+  </template>
+</dom-module>`;
+document.head.appendChild($_documentContainer.content);
+const HOST_PROPS = {
+  default: ['list', 'autofocus', 'pattern', 'autocapitalize', 'autocorrect', 'maxlength', 'minlength', 'name', 'placeholder', 'autocomplete', 'title', 'disabled', 'readonly', 'required'],
+  accessible: ['invalid']
+};
+const PROP_TYPE = {
+  DEFAULT: 'default',
+  ACCESSIBLE: 'accessible'
+};
+/**
+ * @polymerMixin
+ */
+
+const TextFieldMixin = subclass => class VaadinTextFieldMixin extends subclass {
+  static get properties() {
+    return {
+      /**
+       * Whether the value of the control can be automatically completed by the browser.
+       * List of available options at:
+       * https://developer.mozilla.org/en/docs/Web/HTML/Element/input#attr-autocomplete
+       */
+      autocomplete: {
+        type: String
+      },
+
+      /**
+       * This is a property supported by Safari that is used to control whether
+       * autocorrection should be enabled when the user is entering/editing the text.
+       * Possible values are:
+       * on: Enable autocorrection.
+       * off: Disable autocorrection.
+       * @type {!TextFieldAutoCorrect | undefined}
+       */
+      autocorrect: {
+        type: String
+      },
+
+      /**
+       * This is a property supported by Safari and Chrome that is used to control whether
+       * autocapitalization should be enabled when the user is entering/editing the text.
+       * Possible values are:
+       * characters: Characters capitalization.
+       * words: Words capitalization.
+       * sentences: Sentences capitalization.
+       * none: No capitalization.
+       * @type {!TextFieldAutoCapitalize | undefined}
+       */
+      autocapitalize: {
+        type: String
+      },
+
+      /**
+       * Specify that the value should be automatically selected when the field gains focus.
+       * @type {boolean}
+       */
+      autoselect: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * Set to true to display the clear icon which clears the input.
+       * @attr {boolean} clear-button-visible
+       * @type {boolean}
+       */
+      clearButtonVisible: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * Error to show when the input value is invalid.
+       * @attr {string} error-message
+       * @type {string}
+       */
+      errorMessage: {
+        type: String,
+        value: '',
+        observer: '_errorMessageChanged'
+      },
+
+      /**
+       * Object with translated strings used for localization. Has
+       * the following structure and default values:
+       *
+       * ```
+       * {
+       *   // Translation of the clear icon button accessible label
+       *   clear: 'Clear'
+       * }
+       * ```
+       * @type {{clear: string}}
+       */
+      i18n: {
+        type: Object,
+        value: () => {
+          return {
+            clear: 'Clear'
+          };
+        }
+      },
+
+      /**
+       * String used for the label element.
+       * @type {string}
+       */
+      label: {
+        type: String,
+        value: '',
+        observer: '_labelChanged'
+      },
+
+      /**
+       * String used for the helper text.
+       * @attr {string} helper-text
+       * @type {string | null}
+       */
+      helperText: {
+        type: String,
+        value: '',
+        observer: '_helperTextChanged'
+      },
+
+      /**
+       * Maximum number of characters (in Unicode code points) that the user can enter.
+       */
+      maxlength: {
+        type: Number
+      },
+
+      /**
+       * Minimum number of characters (in Unicode code points) that the user can enter.
+       */
+      minlength: {
+        type: Number
+      },
+
+      /**
+       * The name of the control, which is submitted with the form data.
+       */
+      name: {
+        type: String
+      },
+
+      /**
+       * A hint to the user of what can be entered in the control.
+       */
+      placeholder: {
+        type: String
+      },
+
+      /**
+       * This attribute indicates that the user cannot modify the value of the control.
+       */
+      readonly: {
+        type: Boolean,
+        reflectToAttribute: true
+      },
+
+      /**
+       * Specifies that the user must fill in a value.
+       */
+      required: {
+        type: Boolean,
+        reflectToAttribute: true
+      },
+
+      /**
+       * The initial value of the control.
+       * It can be used for two-way data binding.
+       * @type {string}
+       */
+      value: {
+        type: String,
+        value: '',
+        observer: '_valueChanged',
+        notify: true
+      },
+
+      /**
+       * This property is set to true when the control value is invalid.
+       * @type {boolean}
+       */
+      invalid: {
+        type: Boolean,
+        reflectToAttribute: true,
+        notify: true,
+        value: false
+      },
+
+      /**
+       * Specifies that the text field has value.
+       * @attr {boolean} has-value
+       */
+      hasValue: {
+        type: Boolean,
+        reflectToAttribute: true
+      },
+
+      /**
+       * When set to true, user is prevented from typing a value that
+       * conflicts with the given `pattern`.
+       * @attr {boolean} prevent-invalid-input
+       */
+      preventInvalidInput: {
+        type: Boolean
+      },
+
+      /**
+       * A pattern matched against individual characters the user inputs.
+       * When set, the field will prevent:
+       * - `keyDown` events if the entered key doesn't match `/^_enabledCharPattern$/`
+       * - `paste` events if the pasted text doesn't match `/^_enabledCharPattern*$/`
+       * - `drop` events if the dropped text doesn't match `/^_enabledCharPattern*$/`
+       *
+       * For example, to enable entering only numbers and minus signs,
+       * `_enabledCharPattern = "[\\d-]"`
+       * @protected
+       */
+      _enabledCharPattern: String,
+
+      /** @private */
+      _labelId: String,
+
+      /** @private */
+      _helperTextId: String,
+
+      /** @private */
+      _errorId: String,
+
+      /** @private */
+      _inputId: String,
+
+      /** @private */
+      _hasSlottedHelper: Boolean
+    };
+  }
+
+  static get observers() {
+    return ['_stateChanged(disabled, readonly, clearButtonVisible, hasValue)', '_hostPropsChanged(' + HOST_PROPS.default.join(', ') + ')', '_hostAccessiblePropsChanged(' + HOST_PROPS.accessible.join(', ') + ')', '_getActiveErrorId(invalid, errorMessage, _errorId, helperText, _helperTextId, _hasSlottedHelper)', '_getActiveLabelId(label, _labelId, _inputId)', '__observeOffsetHeight(errorMessage, invalid, label, helperText)', '__enabledCharPatternChanged(_enabledCharPattern)'];
+  }
+  /**
+   * @return {HTMLElement | undefined}
+   * @protected
+   */
+
+
+  get focusElement() {
+    if (!this.shadowRoot) {
+      return;
+    }
+
+    const slotted = this.querySelector(`${this._slottedTagName}[slot="${this._slottedTagName}"]`);
+
+    if (slotted) {
+      return slotted;
+    }
+
+    return this.shadowRoot.querySelector('[part="value"]');
+  }
+  /**
+   * @return {HTMLElement | undefined}}
+   * @protected
+   */
+
+
+  get inputElement() {
+    return this.focusElement;
+  }
+  /**
+   * @return {string}
+   * @protected
+   */
+
+
+  get _slottedTagName() {
+    return 'input';
+  }
+  /** @protected */
+
+
+  _createConstraintsObserver() {
+    // This complex observer needs to be added dynamically here (instead of defining it above in the `get observers()`)
+    // so that it runs after complex observers of inheriting classes. Otherwise e.g. `_stepOrMinChanged()` observer of
+    // vaadin-number-field would run after this and the `min` and `step` properties would not yet be propagated to
+    // the `inputElement` when this runs.
+    this._createMethodObserver('_constraintsChanged(required, minlength, maxlength, pattern)');
+  }
+  /** @private */
+
+
+  _onInput(e) {
+    if (this.__preventInput) {
+      e.stopImmediatePropagation();
+      this.__preventInput = false;
+      return;
+    }
+
+    if (this.preventInvalidInput) {
+      const input = this.inputElement;
+
+      if (input.value.length > 0 && !this.checkValidity()) {
+        input.value = this.value || ''; // add input-prevented attribute for 200ms
+
+        this.setAttribute('input-prevented', '');
+        this._inputDebouncer = _debounce.Debouncer.debounce(this._inputDebouncer, _async.timeOut.after(200), () => {
+          this.removeAttribute('input-prevented');
+        });
+        return;
+      }
+    }
+
+    if (!e.__fromClearButton) {
+      this.__userInput = true;
+    }
+
+    this.value = e.target.value;
+    this.__userInput = false;
+  } // NOTE(yuriy): Workaround needed for IE11 and Edge for proper displaying
+  // of the clear button instead of setting display property for it depending on state.
+
+  /** @private */
+
+
+  _stateChanged(disabled, readonly, clearButtonVisible, hasValue) {
+    if (!disabled && !readonly && clearButtonVisible && hasValue) {
+      this.$.clearButton.removeAttribute('hidden');
+    } else {
+      this.$.clearButton.setAttribute('hidden', true);
+    }
+  }
+  /**
+   * @param {!Event} e
+   * @protected
+   */
+
+
+  _onChange(e) {
+    if (this._valueClearing) {
+      return;
+    } // In the Shadow DOM, the `change` event is not leaked into the
+    // ancestor tree, so we must do this manually.
+
+
+    const changeEvent = new CustomEvent('change', {
+      detail: {
+        sourceEvent: e
+      },
+      bubbles: e.bubbles,
+      cancelable: e.cancelable
+    });
+    this.dispatchEvent(changeEvent);
+  }
+  /**
+   * @param {unknown} newVal
+   * @param {unknown} oldVal
+   * @protected
+   */
+
+
+  _valueChanged(newVal, oldVal) {
+    // setting initial value to empty string, skip validation
+    if (newVal === '' && oldVal === undefined) {
+      return;
+    }
+
+    if (newVal !== '' && newVal != null) {
+      this.hasValue = true;
+    } else {
+      this.hasValue = false;
+    }
+
+    if (this.__userInput) {
+      return;
+    } else if (newVal !== undefined) {
+      this.inputElement.value = newVal;
+    } else {
+      this.value = this.inputElement.value = '';
+    }
+
+    if (this.invalid) {
+      this.validate();
+    }
+  }
+  /** @private */
+
+
+  _labelChanged(label) {
+    this._setOrToggleAttribute('has-label', !!label, this);
+  }
+  /** @private */
+
+
+  _helperTextChanged(helperText) {
+    this._setOrToggleAttribute('has-helper', !!helperText, this);
+  }
+  /** @private */
+
+
+  _errorMessageChanged(errorMessage) {
+    this._setOrToggleAttribute('has-error-message', !!errorMessage, this);
+  }
+  /** @private */
+
+
+  _onHelperSlotChange() {
+    const slottedNodes = this.shadowRoot.querySelector(`[name="helper"]`).assignedNodes({
+      flatten: true
+    }); // Only has slotted helper if not a text node
+    // Text nodes are added by the helperText prop and not the helper slot
+    // The filter is added due to shady DOM triggering this callback on helperText prop change
+
+    this._hasSlottedHelper = slottedNodes.filter(node => node.nodeType !== 3).length;
+
+    if (this._hasSlottedHelper) {
+      this.setAttribute('has-helper', 'slotted');
+    } else if (this.helperText === '' || this.helperText === null) {
+      this.removeAttribute('has-helper');
+    }
+  }
+  /** @private */
+
+
+  _onSlotChange() {
+    const slotted = this.querySelector(`${this._slottedTagName}[slot="${this._slottedTagName}"]`);
+
+    if (this.value) {
+      this.inputElement.value = this.value;
+      this.validate();
+    }
+
+    if (slotted && !this._slottedInput) {
+      this._validateSlottedValue(slotted);
+
+      this._addInputListeners(slotted);
+
+      this._addIEListeners(slotted);
+
+      this._slottedInput = slotted;
+    } else if (!slotted && this._slottedInput) {
+      this._removeInputListeners(this._slottedInput);
+
+      this._removeIEListeners(this._slottedInput);
+
+      this._slottedInput = undefined;
+    }
+
+    Object.keys(PROP_TYPE).map(key => PROP_TYPE[key]).forEach(type => this._propagateHostAttributes(HOST_PROPS[type].map(attr => this[attr]), type));
+  }
+  /** @private */
+
+
+  _hostPropsChanged(...attributesValues) {
+    this._propagateHostAttributes(attributesValues, PROP_TYPE.DEFAULT);
+  }
+  /** @private */
+
+
+  _hostAccessiblePropsChanged(...attributesValues) {
+    this._propagateHostAttributes(attributesValues, PROP_TYPE.ACCESSIBLE);
+  }
+  /** @private */
+
+
+  _validateSlottedValue(slotted) {
+    if (slotted.value !== this.value) {
+      console.warn('Please define value on the vaadin-text-field component!');
+      slotted.value = '';
+    }
+  }
+  /** @private */
+
+
+  _propagateHostAttributes(attributesValues, type) {
+    const input = this.inputElement;
+    const attributeNames = HOST_PROPS[type];
+
+    if (type === PROP_TYPE.ACCESSIBLE) {
+      attributeNames.forEach((attr, index) => {
+        this._setOrToggleAttribute(attr, attributesValues[index], input);
+
+        this._setOrToggleAttribute(`aria-${attr}`, attributesValues[index] ? 'true' : false, input);
+      });
+    } else {
+      attributeNames.forEach((attr, index) => {
+        this._setOrToggleAttribute(attr, attributesValues[index], input);
+      });
+    }
+  }
+  /** @private */
+
+
+  _setOrToggleAttribute(name, value, node) {
+    if (!name || !node) {
+      return;
+    }
+
+    if (value) {
+      node.setAttribute(name, typeof value === 'boolean' ? '' : value);
+    } else {
+      node.removeAttribute(name);
+    }
+  }
+  /**
+   * @param {boolean | undefined} required
+   * @param {number | undefined} minlength
+   * @param {number | undefined} maxlength
+   * @param {string | undefined} maxlength
+   * @protected
+   */
+
+
+  _constraintsChanged(required, minlength, maxlength, pattern) {
+    if (!this.invalid) {
+      return;
+    }
+
+    if (!required && !minlength && !maxlength && !pattern) {
+      this.invalid = false;
+    } else {
+      this.validate();
+    }
+  }
+  /**
+   * Returns true if the current input value satisfies all constraints (if any)
+   * @return {boolean}
+   */
+
+
+  checkValidity() {
+    // Note (Yuriy): `__forceCheckValidity` is used in containing components (i.e. `vaadin-date-picker`) in order
+    // to force the checkValidity instead of returning the previous invalid state.
+    if (this.required || this.pattern || this.maxlength || this.minlength || this.__forceCheckValidity) {
+      return this.inputElement.checkValidity();
+    } else {
+      return !this.invalid;
+    }
+  }
+  /** @private */
+
+
+  _addInputListeners(node) {
+    node.addEventListener('input', this._boundOnInput);
+    node.addEventListener('change', this._boundOnChange);
+    node.addEventListener('blur', this._boundOnBlur);
+    node.addEventListener('focus', this._boundOnFocus);
+    node.addEventListener('paste', this._boundOnPaste);
+    node.addEventListener('drop', this._boundOnDrop);
+    node.addEventListener('beforeinput', this._boundOnBeforeInput);
+  }
+  /** @private */
+
+
+  _removeInputListeners(node) {
+    node.removeEventListener('input', this._boundOnInput);
+    node.removeEventListener('change', this._boundOnChange);
+    node.removeEventListener('blur', this._boundOnBlur);
+    node.removeEventListener('focus', this._boundOnFocus);
+    node.removeEventListener('paste', this._boundOnPaste);
+    node.removeEventListener('drop', this._boundOnDrop);
+    node.removeEventListener('beforeinput', this._boundOnBeforeInput);
+  }
+  /** @protected */
+
+
+  ready() {
+    super.ready();
+
+    this._createConstraintsObserver();
+
+    this._boundOnInput = this._onInput.bind(this);
+    this._boundOnChange = this._onChange.bind(this);
+    this._boundOnBlur = this._onBlur.bind(this);
+    this._boundOnFocus = this._onFocus.bind(this);
+    this._boundOnPaste = this._onPaste.bind(this);
+    this._boundOnDrop = this._onDrop.bind(this);
+    this._boundOnBeforeInput = this._onBeforeInput.bind(this);
+    const defaultInput = this.shadowRoot.querySelector('[part="value"]');
+    this._slottedInput = this.querySelector(`${this._slottedTagName}[slot="${this._slottedTagName}"]`);
+
+    this._addInputListeners(defaultInput);
+
+    this._addIEListeners(defaultInput);
+
+    if (this._slottedInput) {
+      this._addIEListeners(this._slottedInput);
+
+      this._addInputListeners(this._slottedInput);
+    }
+
+    this.shadowRoot.querySelector('[name="input"], [name="textarea"]').addEventListener('slotchange', this._onSlotChange.bind(this));
+
+    this._onHelperSlotChange();
+
+    this.shadowRoot.querySelector('[name="helper"]').addEventListener('slotchange', this._onHelperSlotChange.bind(this));
+
+    if (!(window.ShadyCSS && window.ShadyCSS.nativeCss)) {
+      this.updateStyles();
+    }
+
+    this.$.clearButton.addEventListener('mousedown', () => this._valueClearing = true);
+    this.$.clearButton.addEventListener('mouseleave', () => this._valueClearing = false);
+    this.$.clearButton.addEventListener('click', this._onClearButtonClick.bind(this));
+    this.addEventListener('keydown', this._onKeyDown.bind(this));
+    var uniqueId = TextFieldMixin._uniqueId = 1 + TextFieldMixin._uniqueId || 0;
+    this._errorId = `${this.constructor.is}-error-${uniqueId}`;
+    this._labelId = `${this.constructor.is}-label-${uniqueId}`;
+    this._helperTextId = `${this.constructor.is}-helper-${uniqueId}`;
+    this._inputId = `${this.constructor.is}-input-${uniqueId}`; // Lumo theme defines a max-height transition for the "error-message"
+    // part on invalid state change.
+
+    this.shadowRoot.querySelector('[part="error-message"]').addEventListener('transitionend', () => {
+      this.__observeOffsetHeight();
+    });
+  }
+  /**
+   * Returns true if `value` is valid.
+   * `<iron-form>` uses this to check the validity for all its elements.
+   *
+   * @return {boolean} True if the value is valid.
+   */
+
+
+  validate() {
+    return !(this.invalid = !this.checkValidity());
+  }
+
+  clear() {
+    this.value = '';
+  }
+  /** @private */
+
+
+  _onBlur() {
+    this.validate();
+  }
+  /** @private */
+
+
+  _onFocus() {
+    if (this.autoselect) {
+      this.inputElement.select(); // iOS 9 workaround: https://stackoverflow.com/a/7436574
+
+      setTimeout(() => {
+        try {
+          this.inputElement.setSelectionRange(0, 9999);
+        } catch (e) {// The workaround may cause errors on different input types.
+          // Needs to be suppressed. See https://github.com/vaadin/flow/issues/6070
+        }
+      });
+    }
+  }
+  /** @private */
+
+
+  _onClearButtonClick(e) {
+    e.preventDefault(); // NOTE(yuriy): This line won't affect focus on the host. Cannot be properly tested.
+
+    this.inputElement.focus();
+    this.clear();
+    this._valueClearing = false;
+
+    if (navigator.userAgent.match(/Trident/)) {
+      // Disable IE input" event prevention here, we want the input event from
+      // below to propagate normally.
+      this.__preventInput = false;
+    }
+
+    const inputEvent = new Event('input', {
+      bubbles: true,
+      composed: true
+    });
+    inputEvent.__fromClearButton = true;
+    const changeEvent = new Event('change', {
+      bubbles: !this._slottedInput
+    });
+    changeEvent.__fromClearButton = true;
+    this.inputElement.dispatchEvent(inputEvent);
+    this.inputElement.dispatchEvent(changeEvent);
+  }
+  /**
+   * @param {!KeyboardEvent} e
+   * @protected
+   */
+
+
+  _onKeyDown(e) {
+    if (e.keyCode === 27 && this.clearButtonVisible) {
+      const dispatchChange = !!this.value;
+      this.clear();
+      dispatchChange && this.inputElement.dispatchEvent(new Event('change', {
+        bubbles: !this._slottedInput
+      }));
+    }
+
+    if (this._enabledCharPattern && !this.__shouldAcceptKey(e)) {
+      e.preventDefault();
+    }
+  }
+  /** @private */
+
+
+  __shouldAcceptKey(event) {
+    return event.metaKey || event.ctrlKey || !event.key // allow typing anything if event.key is not supported
+    || event.key.length !== 1 // allow "Backspace", "ArrowLeft" etc.
+    || this.__enabledCharRegExp.test(event.key);
+  }
+  /** @private */
+
+
+  _onPaste(e) {
+    if (this._enabledCharPattern) {
+      const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+
+      if (!this.__enabledTextRegExp.test(pastedText)) {
+        e.preventDefault();
+      }
+    }
+  }
+  /** @private */
+
+
+  _onDrop(e) {
+    if (this._enabledCharPattern) {
+      const draggedText = e.dataTransfer.getData('text');
+
+      if (!this.__enabledTextRegExp.test(draggedText)) {
+        e.preventDefault();
+      }
+    }
+  }
+  /** @private */
+
+
+  _onBeforeInput(e) {
+    // The `beforeinput` event covers all the cases for `_enabledCharPattern`: keyboard, pasting and dropping,
+    // but it is still experimental technology so we can't rely on it. It's used here just as an additional check,
+    // because it seems to be the only way to detect and prevent specific keys on mobile devices. See issue #429.
+    if (this._enabledCharPattern && e.data && !this.__enabledTextRegExp.test(e.data)) {
+      e.preventDefault();
+    }
+  }
+  /** @private */
+
+
+  __enabledCharPatternChanged(_enabledCharPattern) {
+    this.__enabledCharRegExp = _enabledCharPattern && new RegExp('^' + _enabledCharPattern + '$');
+    this.__enabledTextRegExp = _enabledCharPattern && new RegExp('^' + _enabledCharPattern + '*$');
+  }
+  /** @private */
+
+
+  _addIEListeners(node) {
+    /* istanbul ignore if */
+    if (navigator.userAgent.match(/Trident/)) {
+      // IE11 dispatches `input` event in following cases:
+      // - focus or blur, when placeholder attribute is set
+      // - placeholder attribute value changed
+      // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/101220/
+      this._shouldPreventInput = () => {
+        this.__preventInput = true;
+        requestAnimationFrame(() => {
+          this.__preventInput = false;
+        });
+      };
+
+      node.addEventListener('focusin', this._shouldPreventInput);
+      node.addEventListener('focusout', this._shouldPreventInput);
+
+      this._createPropertyObserver('placeholder', this._shouldPreventInput);
+    }
+  }
+  /** @private */
+
+
+  _removeIEListeners(node) {
+    /* istanbul ignore if */
+    if (navigator.userAgent.match(/Trident/)) {
+      node.removeEventListener('focusin', this._shouldPreventInput);
+      node.removeEventListener('focusout', this._shouldPreventInput);
+    }
+  }
+  /** @private */
+
+
+  _getActiveErrorId(invalid, errorMessage, errorId, helperText, helperTextId, hasSlottedHelper) {
+    const ids = [];
+
+    if (helperText || hasSlottedHelper) {
+      ids.push(helperTextId);
+    }
+
+    if (errorMessage && invalid) {
+      ids.push(errorId);
+    }
+
+    this._setOrToggleAttribute('aria-describedby', ids.join(' '), this.focusElement);
+  }
+  /** @private */
+
+
+  _getActiveLabelId(label, _labelId, _inputId) {
+    let ids = _inputId;
+
+    if (label) {
+      ids = `${_labelId} ${_inputId}`;
+    }
+
+    this.focusElement.setAttribute('aria-labelledby', ids);
+  }
+  /** @private */
+
+
+  _getErrorMessageAriaHidden(invalid, errorMessage, errorId) {
+    return (!(errorMessage && invalid ? errorId : undefined)).toString();
+  }
+  /** @private */
+
+
+  _dispatchIronResizeEventIfNeeded(sizePropertyName, value) {
+    const previousSizePropertyName = '__previous' + sizePropertyName;
+
+    if (this[previousSizePropertyName] !== undefined && this[previousSizePropertyName] !== value) {
+      this.dispatchEvent(new CustomEvent('iron-resize', {
+        bubbles: true
+      }));
+    }
+
+    this[previousSizePropertyName] = value;
+  }
+  /** @private */
+
+
+  __observeOffsetHeight() {
+    this.__observeOffsetHeightDebouncer = _debounce.Debouncer.debounce(this.__observeOffsetHeightDebouncer, _async.animationFrame, () => {
+      this._dispatchIronResizeEventIfNeeded('Height', this.offsetHeight);
+    });
+  }
+  /**
+   * @param {string} prop
+   * @param {string} oldVal
+   * @param {string} newVal
+   * @protected
+   */
+
+
+  attributeChangedCallback(prop, oldVal, newVal) {
+    super.attributeChangedCallback(prop, oldVal, newVal); // Needed until Edge has CSS Custom Properties (present in Edge Preview)
+
+    /* istanbul ignore if */
+
+    if (!(window.ShadyCSS && window.ShadyCSS.nativeCss) && /^(focused|focus-ring|invalid|disabled|placeholder|has-value)$/.test(prop)) {
+      this.updateStyles();
+    } // Safari has an issue with repainting shadow root element styles when a host attribute changes.
+    // Need this workaround (toggle any inline css property on and off) until the issue gets fixed.
+
+
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    /* istanbul ignore if */
+
+    if (isSafari && this.root) {
+      const WEBKIT_PROPERTY = '-webkit-backface-visibility';
+      this.root.querySelectorAll('*').forEach(el => {
+        el.style[WEBKIT_PROPERTY] = 'visible';
+        el.style[WEBKIT_PROPERTY] = '';
+      });
+    }
+  } // Workaround for https://github.com/Polymer/polymer/issues/5259
+
+
+  get __data() {
+    return this.__dataValue || {};
+  }
+
+  set __data(value) {
+    this.__dataValue = value;
+  }
+  /**
+   * Fired when the user commits a value change.
+   *
+   * @event change
+   */
+
+  /**
+   * Fired when the value is changed by the user: on every typing keystroke,
+   * and the value is cleared using the clear button.
+   *
+   * @event input
+   */
+
+  /**
+   * Fired when the size of the element changes.
+   *
+   * @event iron-resize
+   */
+
+
+};
+
+exports.TextFieldMixin = TextFieldMixin;
+},{"@polymer/polymer/lib/utils/async.js":"../node_modules/@polymer/polymer/lib/utils/async.js","@polymer/polymer/lib/utils/debounce.js":"../node_modules/@polymer/polymer/lib/utils/debounce.js","@polymer/polymer/lib/utils/html-tag.js":"../node_modules/@polymer/polymer/lib/utils/html-tag.js"}],"../node_modules/@vaadin/vaadin-text-field/src/vaadin-text-field.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TextFieldElement = void 0;
+
+var _polymerElement = require("@polymer/polymer/polymer-element.js");
+
+var _vaadinTextFieldMixin = require("./vaadin-text-field-mixin.js");
+
+var _vaadinControlStateMixin = require("@vaadin/vaadin-control-state-mixin/vaadin-control-state-mixin.js");
+
+var _vaadinThemableMixin = require("@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js");
+
+var _vaadinElementMixin = require("@vaadin/vaadin-element-mixin/vaadin-element-mixin.js");
+
+var _htmlTag = require("@polymer/polymer/lib/utils/html-tag.js");
+
+/**
+@license
+Copyright (c) 2017 Vaadin Ltd.
+This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+*/
+
+/**
+ * `<vaadin-text-field>` is a Web Component for text field control in forms.
+ *
+ * ```html
+ * <vaadin-text-field label="First Name">
+ * </vaadin-text-field>
+ * ```
+ *
+ * ### Prefixes and suffixes
+ *
+ * These are child elements of a `<vaadin-text-field>` that are displayed
+ * inline with the input, before or after.
+ * In order for an element to be considered as a prefix, it must have the slot
+ * attribute set to `prefix` (and similarly for `suffix`).
+ *
+ * ```html
+ * <vaadin-text-field label="Email address">
+ *   <div slot="prefix">Sent to:</div>
+ *   <div slot="suffix">@vaadin.com</div>
+ * </vaadin-text-area>
+ * ```
+ *
+ * ### Styling
+ *
+ * The following custom properties are available for styling:
+ *
+ * Custom property | Description | Default
+ * ----------------|-------------|-------------
+ * `--vaadin-text-field-default-width` | Set the default width of the input field | `12em`
+ *
+ * The following shadow DOM parts are available for styling:
+ *
+ * Part name | Description
+ * ----------------|----------------
+ * `label` | The label element
+ * `input-field` | The element that wraps prefix, value and suffix
+ * `value` | The text value element inside the `input-field` element
+ * `error-message` | The error message element
+ *
+ * The following state attributes are available for styling:
+ *
+ * Attribute    | Description | Part name
+ * -------------|-------------|------------
+ * `disabled` | Set to a disabled text field | :host
+ * `has-value` | Set when the element has a value | :host
+ * `has-label` | Set when the element has a label | :host
+ * `has-helper` | Set when the element has helper text or slot | :host
+ * `has-error-message` | Set when the element has an error message | :host
+ * `invalid` | Set when the element is invalid | :host
+ * `input-prevented` | Temporarily set when invalid input is prevented | :host
+ * `focused` | Set when the element is focused | :host
+ * `focus-ring` | Set when the element is keyboard focused | :host
+ * `readonly` | Set to a readonly text field | :host
+ *
+ * See [ThemableMixin – how to apply styles for shadow parts](https://github.com/vaadin/vaadin-themable-mixin/wiki)
+ *
+ * @extends PolymerElement
+ * @mixes TextFieldMixin
+ * @mixes ControlStateMixin
+ * @mixes ThemableMixin
+ * @mixes ElementMixin
+ * @demo demo/index.html
+ */
+class TextFieldElement extends (0, _vaadinElementMixin.ElementMixin)((0, _vaadinTextFieldMixin.TextFieldMixin)((0, _vaadinControlStateMixin.ControlStateMixin)((0, _vaadinThemableMixin.ThemableMixin)(_polymerElement.PolymerElement)))) {
+  static get template() {
+    return (0, _htmlTag.html)`
+    <style include="vaadin-text-field-shared-styles">
+      /* polymer-cli linter breaks with empty line */
+    </style>
+
+    <div class="vaadin-text-field-container">
+
+      <label part="label" on-click="focus" id="[[_labelId]]">[[label]]</label>
+
+      <div part="input-field" id="[[_inputId]]">
+
+        <slot name="prefix"></slot>
+
+        <slot name="input">
+          <input part="value">
+        </slot>
+
+        <div part="clear-button" id="clearButton" role="button" aria-label\$="[[i18n.clear]]"></div>
+        <slot name="suffix"></slot>
+
+      </div>
+
+      <div part="helper-text" on-click="focus" id="[[_helperTextId]]">
+        <slot name="helper">[[helperText]]</slot>
+      </div>
+
+      <div part="error-message" id="[[_errorId]]" aria-live="assertive" aria-hidden\$="[[_getErrorMessageAriaHidden(invalid, errorMessage, _errorId)]]">[[errorMessage]]</div>
+
+    </div>
+`;
+  }
+
+  static get is() {
+    return 'vaadin-text-field';
+  }
+
+  static get version() {
+    return '2.8.1';
+  }
+
+  static get properties() {
+    return {
+      /**
+       * Identifies a list of pre-defined options to suggest to the user.
+       * The value must be the id of a <datalist> element in the same document.
+       */
+      list: {
+        type: String
+      },
+
+      /**
+       * A regular expression that the value is checked against.
+       * The pattern must match the entire value, not just some subset.
+       */
+      pattern: {
+        type: String
+      },
+
+      /**
+       * The text usually displayed in a tooltip popup when the mouse is over the field.
+       * @type {string}
+       */
+      title: {
+        type: String
+      }
+    };
+  }
+
+}
+
+exports.TextFieldElement = TextFieldElement;
+customElements.define(TextFieldElement.is, TextFieldElement);
+},{"@polymer/polymer/polymer-element.js":"../node_modules/@polymer/polymer/polymer-element.js","./vaadin-text-field-mixin.js":"../node_modules/@vaadin/vaadin-text-field/src/vaadin-text-field-mixin.js","@vaadin/vaadin-control-state-mixin/vaadin-control-state-mixin.js":"../node_modules/@vaadin/vaadin-control-state-mixin/vaadin-control-state-mixin.js","@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js":"../node_modules/@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js","@vaadin/vaadin-element-mixin/vaadin-element-mixin.js":"../node_modules/@vaadin/vaadin-element-mixin/vaadin-element-mixin.js","@polymer/polymer/lib/utils/html-tag.js":"../node_modules/@polymer/polymer/lib/utils/html-tag.js"}],"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-text-field.js":[function(require,module,exports) {
+"use strict";
+
+require("./vaadin-text-field-styles.js");
+
+require("../../src/vaadin-text-field.js");
+},{"./vaadin-text-field-styles.js":"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-text-field-styles.js","../../src/vaadin-text-field.js":"../node_modules/@vaadin/vaadin-text-field/src/vaadin-text-field.js"}],"../node_modules/@vaadin/vaadin-text-field/src/vaadin-email-field.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EmailFieldElement = void 0;
+
+require("@polymer/polymer/polymer-element.js");
+
+require("@polymer/polymer/lib/elements/custom-style.js");
+
+var _vaadinTextField = require("./vaadin-text-field.js");
+
+var _domModule = require("@polymer/polymer/lib/elements/dom-module.js");
+
+var _htmlTag = require("@polymer/polymer/lib/utils/html-tag.js");
+
+/**
+@license
+Copyright (c) 2018 Vaadin Ltd.
+This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+*/
+const $_documentContainer = (0, _htmlTag.html)`<dom-module id="vaadin-email-field-template">
+  <template>
+    <style>
+      :host([dir="rtl"]) [part="input-field"] {
+        direction: ltr;
+      }
+
+      :host([dir="rtl"]) [part="value"]::placeholder {
+        direction: rtl;
+        text-align: left;
+      }
+
+      :host([dir="rtl"]) [part="input-field"] ::slotted(input)::placeholder {
+        direction: rtl;
+        text-align: left;
+      }
+
+      :host([dir="rtl"]) [part="value"]:-ms-input-placeholder,
+      :host([dir="rtl"]) [part="input-field"] ::slotted(input):-ms-input-placeholder {
+        direction: rtl;
+        text-align: left;
+      }
+    </style>
+  </template>
+  
+</dom-module>`;
+document.head.appendChild($_documentContainer.content);
+let memoizedTemplate;
+/**
+ * `<vaadin-email-field>` is a Web Component for email field control in forms.
+ *
+ * ```html
+ * <vaadin-email-field label="Email">
+ * </vaadin-email-field>
+ * ```
+ *
+ * ### Styling
+ *
+ * See vaadin-text-field.html for the styling documentation
+ *
+ * See [ThemableMixin – how to apply styles for shadow parts](https://github.com/vaadin/vaadin-themable-mixin/wiki)
+ *
+ * @extends TextFieldElement
+ * @demo demo/index.html
+ */
+
+class EmailFieldElement extends _vaadinTextField.TextFieldElement {
+  static get is() {
+    return 'vaadin-email-field';
+  }
+
+  static get version() {
+    return '2.8.1';
+  }
+
+  static get template() {
+    if (!memoizedTemplate) {
+      // Clone the superclass template
+      memoizedTemplate = super.template.cloneNode(true); // Retrieve this element's dom-module template
+
+      const thisTemplate = _domModule.DomModule.import(this.is + '-template', 'template');
+
+      const styles = thisTemplate.content.querySelector('style'); // Add the and styles to the text-field template
+
+      memoizedTemplate.content.appendChild(styles);
+    }
+
+    return memoizedTemplate;
+  }
+  /** @protected */
+
+
+  ready() {
+    super.ready();
+    this.inputElement.type = 'email';
+    this.inputElement.autocapitalize = 'off';
+  }
+  /** @protected */
+
+
+  _createConstraintsObserver() {
+    // NOTE: pattern needs to be set before constraints observer is initialized
+    this.pattern = this.pattern || '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$';
+
+    super._createConstraintsObserver();
+  }
+
+}
+
+exports.EmailFieldElement = EmailFieldElement;
+customElements.define(EmailFieldElement.is, EmailFieldElement);
+},{"@polymer/polymer/polymer-element.js":"../node_modules/@polymer/polymer/polymer-element.js","@polymer/polymer/lib/elements/custom-style.js":"../node_modules/@polymer/polymer/lib/elements/custom-style.js","./vaadin-text-field.js":"../node_modules/@vaadin/vaadin-text-field/src/vaadin-text-field.js","@polymer/polymer/lib/elements/dom-module.js":"../node_modules/@polymer/polymer/lib/elements/dom-module.js","@polymer/polymer/lib/utils/html-tag.js":"../node_modules/@polymer/polymer/lib/utils/html-tag.js"}],"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-email-field.js":[function(require,module,exports) {
+"use strict";
+
+require("./vaadin-email-field-styles.js");
+
+require("./vaadin-text-field.js");
+
+require("../../src/vaadin-email-field.js");
+},{"./vaadin-email-field-styles.js":"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-email-field-styles.js","./vaadin-text-field.js":"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-text-field.js","../../src/vaadin-email-field.js":"../node_modules/@vaadin/vaadin-text-field/src/vaadin-email-field.js"}],"../node_modules/@vaadin/vaadin-text-field/vaadin-email-field.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+require("./theme/lumo/vaadin-email-field.js");
+
+var _vaadinEmailField2 = require("./src/vaadin-email-field.js");
+
+Object.keys(_vaadinEmailField2).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _vaadinEmailField2[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _vaadinEmailField2[key];
+    }
+  });
+});
+},{"./theme/lumo/vaadin-email-field.js":"../node_modules/@vaadin/vaadin-text-field/theme/lumo/vaadin-email-field.js","./src/vaadin-email-field.js":"../node_modules/@vaadin/vaadin-text-field/src/vaadin-email-field.js"}],"components/hello-world.js":[function(require,module,exports) {
 "use strict";
 
 var _litElement = require("lit-element");
 
 require("@vaadin/vaadin-button");
 
+require("@vaadin/vaadin-text-field/vaadin-email-field");
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    <h1>Hello World Component</h1>\n    <vaadin-button theme=\"primary\">Default</vaadin-button>\n    "]);
+  var data = _taggedTemplateLiteral(["\n    <div theme=\"dark\">\n    <h1>Hello World Component</h1>\n    <vaadin-button theme=\"primary\">Test</vaadin-button>\n    <vaadin-email-field>Hello</vaadin-email-field>\n    <vaadin-text-field>Hello</vaadin-text-field>\n    <h1>Welcome to Parcel Base config for LitElement</h1>\n    </div>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -17557,17 +19550,2995 @@ var HelloWorld = /*#__PURE__*/function (_LitElement) {
 }(_litElement.LitElement);
 
 customElements.define('hello-world', HelloWorld);
-},{"lit-element":"../node_modules/lit-element/lit-element.js","@vaadin/vaadin-button":"../node_modules/@vaadin/vaadin-button/vaadin-button.js"}],"app.js":[function(require,module,exports) {
+},{"lit-element":"../node_modules/lit-element/lit-element.js","@vaadin/vaadin-button":"../node_modules/@vaadin/vaadin-button/vaadin-button.js","@vaadin/vaadin-text-field/vaadin-email-field":"../node_modules/@vaadin/vaadin-text-field/vaadin-email-field.js"}],"js/theme-selector.js":[function(require,module,exports) {
+matchMedia("(prefers-color-scheme: dark)").addEventListener("chane", function () {
+  var theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  documentElement.setAttribute("theme", theme);
+});
+},{}],"../node_modules/@vaadin/router/dist/vaadin-router.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Router = exports.Resolver = void 0;
+
+function toArray(objectOrArray) {
+  objectOrArray = objectOrArray || [];
+  return Array.isArray(objectOrArray) ? objectOrArray : [objectOrArray];
+}
+
+function log(msg) {
+  return `[Vaadin.Router] ${msg}`;
+}
+
+function logValue(value) {
+  if (typeof value !== 'object') {
+    return String(value);
+  }
+
+  const stringType = Object.prototype.toString.call(value).match(/ (.*)\]$/)[1];
+
+  if (stringType === 'Object' || stringType === 'Array') {
+    return `${stringType} ${JSON.stringify(value)}`;
+  } else {
+    return stringType;
+  }
+}
+
+const MODULE = 'module';
+const NOMODULE = 'nomodule';
+const bundleKeys = [MODULE, NOMODULE];
+
+function ensureBundle(src) {
+  if (!src.match(/.+\.[m]?js$/)) {
+    throw new Error(log(`Unsupported type for bundle "${src}": .js or .mjs expected.`));
+  }
+}
+
+function ensureRoute(route) {
+  if (!route || !isString(route.path)) {
+    throw new Error(log(`Expected route config to be an object with a "path" string property, or an array of such objects`));
+  }
+
+  const bundle = route.bundle;
+  const stringKeys = ['component', 'redirect', 'bundle'];
+
+  if (!isFunction(route.action) && !Array.isArray(route.children) && !isFunction(route.children) && !isObject(bundle) && !stringKeys.some(key => isString(route[key]))) {
+    throw new Error(log(`Expected route config "${route.path}" to include either "${stringKeys.join('", "')}" ` + `or "action" function but none found.`));
+  }
+
+  if (bundle) {
+    if (isString(bundle)) {
+      ensureBundle(bundle);
+    } else if (!bundleKeys.some(key => key in bundle)) {
+      throw new Error(log('Expected route bundle to include either "' + NOMODULE + '" or "' + MODULE + '" keys, or both'));
+    } else {
+      bundleKeys.forEach(key => key in bundle && ensureBundle(bundle[key]));
+    }
+  }
+
+  if (route.redirect) {
+    ['bundle', 'component'].forEach(overriddenProp => {
+      if (overriddenProp in route) {
+        console.warn(log(`Route config "${route.path}" has both "redirect" and "${overriddenProp}" properties, ` + `and "redirect" will always override the latter. Did you mean to only use "${overriddenProp}"?`));
+      }
+    });
+  }
+}
+
+function ensureRoutes(routes) {
+  toArray(routes).forEach(route => ensureRoute(route));
+}
+
+function loadScript(src, key) {
+  let script = document.head.querySelector('script[src="' + src + '"][async]');
+
+  if (!script) {
+    script = document.createElement('script');
+    script.setAttribute('src', src);
+
+    if (key === MODULE) {
+      script.setAttribute('type', MODULE);
+    } else if (key === NOMODULE) {
+      script.setAttribute(NOMODULE, '');
+    }
+
+    script.async = true;
+  }
+
+  return new Promise((resolve, reject) => {
+    script.onreadystatechange = script.onload = e => {
+      script.__dynamicImportLoaded = true;
+      resolve(e);
+    };
+
+    script.onerror = e => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+
+      reject(e);
+    };
+
+    if (script.parentNode === null) {
+      document.head.appendChild(script);
+    } else if (script.__dynamicImportLoaded) {
+      resolve();
+    }
+  });
+}
+
+function loadBundle(bundle) {
+  if (isString(bundle)) {
+    return loadScript(bundle);
+  } else {
+    return Promise.race(bundleKeys.filter(key => key in bundle).map(key => loadScript(bundle[key], key)));
+  }
+}
+
+function fireRouterEvent(type, detail) {
+  return !window.dispatchEvent(new CustomEvent(`vaadin-router-${type}`, {
+    cancelable: type === 'go',
+    detail
+  }));
+}
+
+function isObject(o) {
+  // guard against null passing the typeof check
+  return typeof o === 'object' && !!o;
+}
+
+function isFunction(f) {
+  return typeof f === 'function';
+}
+
+function isString(s) {
+  return typeof s === 'string';
+}
+
+function getNotFoundError(context) {
+  const error = new Error(log(`Page not found (${context.pathname})`));
+  error.context = context;
+  error.code = 404;
+  return error;
+}
+
+const notFoundResult = new class NotFoundResult {}();
+/* istanbul ignore next: coverage is calculated in Chrome, this code is for IE */
+
+function getAnchorOrigin(anchor) {
+  // IE11: on HTTP and HTTPS the default port is not included into
+  // window.location.origin, so won't include it here either.
+  const port = anchor.port;
+  const protocol = anchor.protocol;
+  const defaultHttp = protocol === 'http:' && port === '80';
+  const defaultHttps = protocol === 'https:' && port === '443';
+  const host = defaultHttp || defaultHttps ? anchor.hostname // does not include the port number (e.g. www.example.org)
+  : anchor.host; // does include the port number (e.g. www.example.org:80)
+
+  return `${protocol}//${host}`;
+} // The list of checks is not complete:
+//  - SVG support is missing
+//  - the 'rel' attribute is not considered
+
+
+function vaadinRouterGlobalClickHandler(event) {
+  // ignore the click if the default action is prevented
+  if (event.defaultPrevented) {
+    return;
+  } // ignore the click if not with the primary mouse button
+
+
+  if (event.button !== 0) {
+    return;
+  } // ignore the click if a modifier key is pressed
+
+
+  if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey) {
+    return;
+  } // find the <a> element that the click is at (or within)
+
+
+  let anchor = event.target;
+  const path = event.composedPath ? event.composedPath() : event.path || []; // FIXME(web-padawan): `Symbol.iterator` used by webcomponentsjs is broken for arrays
+  // example to check: `for...of` loop here throws the "Not yet implemented" error
+
+  for (let i = 0; i < path.length; i++) {
+    const target = path[i];
+
+    if (target.nodeName && target.nodeName.toLowerCase() === 'a') {
+      anchor = target;
+      break;
+    }
+  }
+
+  while (anchor && anchor.nodeName.toLowerCase() !== 'a') {
+    anchor = anchor.parentNode;
+  } // ignore the click if not at an <a> element
+
+
+  if (!anchor || anchor.nodeName.toLowerCase() !== 'a') {
+    return;
+  } // ignore the click if the <a> element has a non-default target
+
+
+  if (anchor.target && anchor.target.toLowerCase() !== '_self') {
+    return;
+  } // ignore the click if the <a> element has the 'download' attribute
+
+
+  if (anchor.hasAttribute('download')) {
+    return;
+  } // ignore the click if the <a> element has the 'router-ignore' attribute
+
+
+  if (anchor.hasAttribute('router-ignore')) {
+    return;
+  } // ignore the click if the target URL is a fragment on the current page
+
+
+  if (anchor.pathname === window.location.pathname && anchor.hash !== '') {
+    return;
+  } // ignore the click if the target is external to the app
+  // In IE11 HTMLAnchorElement does not have the `origin` property
+
+
+  const origin = anchor.origin || getAnchorOrigin(anchor);
+
+  if (origin !== window.location.origin) {
+    return;
+  } // if none of the above, convert the click into a navigation event
+
+
+  const {
+    pathname,
+    search,
+    hash
+  } = anchor;
+
+  if (fireRouterEvent('go', {
+    pathname,
+    search,
+    hash
+  })) {
+    event.preventDefault();
+  }
+}
+/**
+ * A navigation trigger for Vaadin Router that translated clicks on `<a>` links
+ * into Vaadin Router navigation events.
+ *
+ * Only regular clicks on in-app links are translated (primary mouse button, no
+ * modifier keys, the target href is within the app's URL space).
+ *
+ * @memberOf Router.NavigationTrigger
+ * @type {NavigationTrigger}
+ */
+
+
+const CLICK = {
+  activate() {
+    window.document.addEventListener('click', vaadinRouterGlobalClickHandler);
+  },
+
+  inactivate() {
+    window.document.removeEventListener('click', vaadinRouterGlobalClickHandler);
+  }
+
+}; // PopStateEvent constructor shim
+
+const isIE = /Trident/.test(navigator.userAgent);
+/* istanbul ignore next: coverage is calculated in Chrome, this code is for IE */
+
+if (isIE && !isFunction(window.PopStateEvent)) {
+  window.PopStateEvent = function (inType, params) {
+    params = params || {};
+    var e = document.createEvent('Event');
+    e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
+    e.state = params.state || null;
+    return e;
+  };
+
+  window.PopStateEvent.prototype = window.Event.prototype;
+}
+
+function vaadinRouterGlobalPopstateHandler(event) {
+  if (event.state === 'vaadin-router-ignore') {
+    return;
+  }
+
+  const {
+    pathname,
+    search,
+    hash
+  } = window.location;
+  fireRouterEvent('go', {
+    pathname,
+    search,
+    hash
+  });
+}
+/**
+ * A navigation trigger for Vaadin Router that translates popstate events into
+ * Vaadin Router navigation events.
+ *
+ * @memberOf Router.NavigationTrigger
+ * @type {NavigationTrigger}
+ */
+
+
+const POPSTATE = {
+  activate() {
+    window.addEventListener('popstate', vaadinRouterGlobalPopstateHandler);
+  },
+
+  inactivate() {
+    window.removeEventListener('popstate', vaadinRouterGlobalPopstateHandler);
+  }
+
+};
+/**
+ * Expose `pathToRegexp`.
+ */
+
+var pathToRegexp_1 = pathToRegexp;
+var parse_1 = parse;
+var compile_1 = compile;
+var tokensToFunction_1 = tokensToFunction;
+var tokensToRegExp_1 = tokensToRegExp;
+/**
+ * Default configs.
+ */
+
+var DEFAULT_DELIMITER = '/';
+var DEFAULT_DELIMITERS = './';
+/**
+ * The main path matching regexp utility.
+ *
+ * @type {RegExp}
+ */
+
+var PATH_REGEXP = new RegExp([// Match escaped characters that would otherwise appear in future matches.
+// This allows the user to escape special characters that won't transform.
+'(\\\\.)', // Match Express-style parameters and un-named parameters with a prefix
+// and optional suffixes. Matches appear as:
+//
+// ":test(\\d+)?" => ["test", "\d+", undefined, "?"]
+// "(\\d+)"  => [undefined, undefined, "\d+", undefined]
+'(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?'].join('|'), 'g');
+/**
+ * Parse a string for the raw tokens.
+ *
+ * @param  {string}  str
+ * @param  {Object=} options
+ * @return {!Array}
+ */
+
+function parse(str, options) {
+  var tokens = [];
+  var key = 0;
+  var index = 0;
+  var path = '';
+  var defaultDelimiter = options && options.delimiter || DEFAULT_DELIMITER;
+  var delimiters = options && options.delimiters || DEFAULT_DELIMITERS;
+  var pathEscaped = false;
+  var res;
+
+  while ((res = PATH_REGEXP.exec(str)) !== null) {
+    var m = res[0];
+    var escaped = res[1];
+    var offset = res.index;
+    path += str.slice(index, offset);
+    index = offset + m.length; // Ignore already escaped sequences.
+
+    if (escaped) {
+      path += escaped[1];
+      pathEscaped = true;
+      continue;
+    }
+
+    var prev = '';
+    var next = str[index];
+    var name = res[2];
+    var capture = res[3];
+    var group = res[4];
+    var modifier = res[5];
+
+    if (!pathEscaped && path.length) {
+      var k = path.length - 1;
+
+      if (delimiters.indexOf(path[k]) > -1) {
+        prev = path[k];
+        path = path.slice(0, k);
+      }
+    } // Push the current path onto the tokens.
+
+
+    if (path) {
+      tokens.push(path);
+      path = '';
+      pathEscaped = false;
+    }
+
+    var partial = prev !== '' && next !== undefined && next !== prev;
+    var repeat = modifier === '+' || modifier === '*';
+    var optional = modifier === '?' || modifier === '*';
+    var delimiter = prev || defaultDelimiter;
+    var pattern = capture || group;
+    tokens.push({
+      name: name || key++,
+      prefix: prev,
+      delimiter: delimiter,
+      optional: optional,
+      repeat: repeat,
+      partial: partial,
+      pattern: pattern ? escapeGroup(pattern) : '[^' + escapeString(delimiter) + ']+?'
+    });
+  } // Push any remaining characters.
+
+
+  if (path || index < str.length) {
+    tokens.push(path + str.substr(index));
+  }
+
+  return tokens;
+}
+/**
+ * Compile a string to a template function for the path.
+ *
+ * @param  {string}             str
+ * @param  {Object=}            options
+ * @return {!function(Object=, Object=)}
+ */
+
+
+function compile(str, options) {
+  return tokensToFunction(parse(str, options));
+}
+/**
+ * Expose a method for transforming tokens into the path function.
+ */
+
+
+function tokensToFunction(tokens) {
+  // Compile all the tokens into regexps.
+  var matches = new Array(tokens.length); // Compile all the patterns before compilation.
+
+  for (var i = 0; i < tokens.length; i++) {
+    if (typeof tokens[i] === 'object') {
+      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$');
+    }
+  }
+
+  return function (data, options) {
+    var path = '';
+    var encode = options && options.encode || encodeURIComponent;
+
+    for (var i = 0; i < tokens.length; i++) {
+      var token = tokens[i];
+
+      if (typeof token === 'string') {
+        path += token;
+        continue;
+      }
+
+      var value = data ? data[token.name] : undefined;
+      var segment;
+
+      if (Array.isArray(value)) {
+        if (!token.repeat) {
+          throw new TypeError('Expected "' + token.name + '" to not repeat, but got array');
+        }
+
+        if (value.length === 0) {
+          if (token.optional) continue;
+          throw new TypeError('Expected "' + token.name + '" to not be empty');
+        }
+
+        for (var j = 0; j < value.length; j++) {
+          segment = encode(value[j], token);
+
+          if (!matches[i].test(segment)) {
+            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '"');
+          }
+
+          path += (j === 0 ? token.prefix : token.delimiter) + segment;
+        }
+
+        continue;
+      }
+
+      if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+        segment = encode(String(value), token);
+
+        if (!matches[i].test(segment)) {
+          throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but got "' + segment + '"');
+        }
+
+        path += token.prefix + segment;
+        continue;
+      }
+
+      if (token.optional) {
+        // Prepend partial segment prefixes.
+        if (token.partial) path += token.prefix;
+        continue;
+      }
+
+      throw new TypeError('Expected "' + token.name + '" to be ' + (token.repeat ? 'an array' : 'a string'));
+    }
+
+    return path;
+  };
+}
+/**
+ * Escape a regular expression string.
+ *
+ * @param  {string} str
+ * @return {string}
+ */
+
+
+function escapeString(str) {
+  return str.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1');
+}
+/**
+ * Escape the capturing group by escaping special characters and meaning.
+ *
+ * @param  {string} group
+ * @return {string}
+ */
+
+
+function escapeGroup(group) {
+  return group.replace(/([=!:$/()])/g, '\\$1');
+}
+/**
+ * Get the flags for a regexp from the options.
+ *
+ * @param  {Object} options
+ * @return {string}
+ */
+
+
+function flags(options) {
+  return options && options.sensitive ? '' : 'i';
+}
+/**
+ * Pull out keys from a regexp.
+ *
+ * @param  {!RegExp} path
+ * @param  {Array=}  keys
+ * @return {!RegExp}
+ */
+
+
+function regexpToRegexp(path, keys) {
+  if (!keys) return path; // Use a negative lookahead to match only capturing groups.
+
+  var groups = path.source.match(/\((?!\?)/g);
+
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name: i,
+        prefix: null,
+        delimiter: null,
+        optional: false,
+        repeat: false,
+        partial: false,
+        pattern: null
+      });
+    }
+  }
+
+  return path;
+}
+/**
+ * Transform an array into a regexp.
+ *
+ * @param  {!Array}  path
+ * @param  {Array=}  keys
+ * @param  {Object=} options
+ * @return {!RegExp}
+ */
+
+
+function arrayToRegexp(path, keys, options) {
+  var parts = [];
+
+  for (var i = 0; i < path.length; i++) {
+    parts.push(pathToRegexp(path[i], keys, options).source);
+  }
+
+  return new RegExp('(?:' + parts.join('|') + ')', flags(options));
+}
+/**
+ * Create a path regexp from string input.
+ *
+ * @param  {string}  path
+ * @param  {Array=}  keys
+ * @param  {Object=} options
+ * @return {!RegExp}
+ */
+
+
+function stringToRegexp(path, keys, options) {
+  return tokensToRegExp(parse(path, options), keys, options);
+}
+/**
+ * Expose a function for taking tokens and returning a RegExp.
+ *
+ * @param  {!Array}  tokens
+ * @param  {Array=}  keys
+ * @param  {Object=} options
+ * @return {!RegExp}
+ */
+
+
+function tokensToRegExp(tokens, keys, options) {
+  options = options || {};
+  var strict = options.strict;
+  var start = options.start !== false;
+  var end = options.end !== false;
+  var delimiter = escapeString(options.delimiter || DEFAULT_DELIMITER);
+  var delimiters = options.delimiters || DEFAULT_DELIMITERS;
+  var endsWith = [].concat(options.endsWith || []).map(escapeString).concat('$').join('|');
+  var route = start ? '^' : '';
+  var isEndDelimited = tokens.length === 0; // Iterate over the tokens and create our regexp string.
+
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i];
+
+    if (typeof token === 'string') {
+      route += escapeString(token);
+      isEndDelimited = i === tokens.length - 1 && delimiters.indexOf(token[token.length - 1]) > -1;
+    } else {
+      var capture = token.repeat ? '(?:' + token.pattern + ')(?:' + escapeString(token.delimiter) + '(?:' + token.pattern + '))*' : token.pattern;
+      if (keys) keys.push(token);
+
+      if (token.optional) {
+        if (token.partial) {
+          route += escapeString(token.prefix) + '(' + capture + ')?';
+        } else {
+          route += '(?:' + escapeString(token.prefix) + '(' + capture + '))?';
+        }
+      } else {
+        route += escapeString(token.prefix) + '(' + capture + ')';
+      }
+    }
+  }
+
+  if (end) {
+    if (!strict) route += '(?:' + delimiter + ')?';
+    route += endsWith === '$' ? '$' : '(?=' + endsWith + ')';
+  } else {
+    if (!strict) route += '(?:' + delimiter + '(?=' + endsWith + '))?';
+    if (!isEndDelimited) route += '(?=' + delimiter + '|' + endsWith + ')';
+  }
+
+  return new RegExp(route, flags(options));
+}
+/**
+ * Normalize the given path string, returning a regular expression.
+ *
+ * An empty array can be passed in for the keys, which will hold the
+ * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+ * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+ *
+ * @param  {(string|RegExp|Array)} path
+ * @param  {Array=}                keys
+ * @param  {Object=}               options
+ * @return {!RegExp}
+ */
+
+
+function pathToRegexp(path, keys, options) {
+  if (path instanceof RegExp) {
+    return regexpToRegexp(path, keys);
+  }
+
+  if (Array.isArray(path)) {
+    return arrayToRegexp(
+    /** @type {!Array} */
+    path, keys, options);
+  }
+
+  return stringToRegexp(
+  /** @type {string} */
+  path, keys, options);
+}
+
+pathToRegexp_1.parse = parse_1;
+pathToRegexp_1.compile = compile_1;
+pathToRegexp_1.tokensToFunction = tokensToFunction_1;
+pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
+/**
+ * Universal Router (https://www.kriasoft.com/universal-router/)
+ *
+ * Copyright (c) 2015-present Kriasoft.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+const {
+  hasOwnProperty
+} = Object.prototype;
+const cache = new Map(); // see https://github.com/pillarjs/path-to-regexp/issues/148
+
+cache.set('|false', {
+  keys: [],
+  pattern: /(?:)/
+});
+
+function decodeParam(val) {
+  try {
+    return decodeURIComponent(val);
+  } catch (err) {
+    return val;
+  }
+}
+
+function matchPath(routepath, path, exact, parentKeys, parentParams) {
+  exact = !!exact;
+  const cacheKey = `${routepath}|${exact}`;
+  let regexp = cache.get(cacheKey);
+
+  if (!regexp) {
+    const keys = [];
+    regexp = {
+      keys,
+      pattern: pathToRegexp_1(routepath, keys, {
+        end: exact,
+        strict: routepath === ''
+      })
+    };
+    cache.set(cacheKey, regexp);
+  }
+
+  const m = regexp.pattern.exec(path);
+
+  if (!m) {
+    return null;
+  }
+
+  const params = Object.assign({}, parentParams);
+
+  for (let i = 1; i < m.length; i++) {
+    const key = regexp.keys[i - 1];
+    const prop = key.name;
+    const value = m[i];
+
+    if (value !== undefined || !hasOwnProperty.call(params, prop)) {
+      if (key.repeat) {
+        params[prop] = value ? value.split(key.delimiter).map(decodeParam) : [];
+      } else {
+        params[prop] = value ? decodeParam(value) : value;
+      }
+    }
+  }
+
+  return {
+    path: m[0],
+    keys: (parentKeys || []).concat(regexp.keys),
+    params
+  };
+}
+/**
+ * Universal Router (https://www.kriasoft.com/universal-router/)
+ *
+ * Copyright (c) 2015-present Kriasoft.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+/**
+ * Traverses the routes tree and matches its nodes to the given pathname from
+ * the root down to the leaves. Each match consumes a part of the pathname and
+ * the matching process continues for as long as there is a matching child
+ * route for the remaining part of the pathname.
+ *
+ * The returned value is a lazily evaluated iterator.
+ *
+ * The leading "/" in a route path matters only for the root of the routes
+ * tree (or if all parent routes are ""). In all other cases a leading "/" in
+ * a child route path has no significance.
+ *
+ * The trailing "/" in a _route path_ matters only for the leaves of the
+ * routes tree. A leaf route with a trailing "/" matches only a pathname that
+ * also has a trailing "/".
+ *
+ * The trailing "/" in a route path does not affect matching of child routes
+ * in any way.
+ *
+ * The trailing "/" in a _pathname_ generally does not matter (except for
+ * the case of leaf nodes described above).
+ *
+ * The "" and "/" routes have special treatment:
+ *  1. as a single route
+ *     the "" and "/" routes match only the "" and "/" pathnames respectively
+ *  2. as a parent in the routes tree
+ *     the "" route matches any pathname without consuming any part of it
+ *     the "/" route matches any absolute pathname consuming its leading "/"
+ *  3. as a leaf in the routes tree
+ *     the "" and "/" routes match only if the entire pathname is consumed by
+ *         the parent routes chain. In this case "" and "/" are equivalent.
+ *  4. several directly nested "" or "/" routes
+ *     - directly nested "" or "/" routes are 'squashed' (i.e. nesting two
+ *       "/" routes does not require a double "/" in the pathname to match)
+ *     - if there are only "" in the parent routes chain, no part of the
+ *       pathname is consumed, and the leading "/" in the child routes' paths
+ *       remains significant
+ *
+ * Side effect:
+ *   - the routes tree { path: '' } matches only the '' pathname
+ *   - the routes tree { path: '', children: [ { path: '' } ] } matches any
+ *     pathname (for the tree root)
+ *
+ * Prefix matching can be enabled also by `children: true`.
+ */
+
+
+function matchRoute(route, pathname, ignoreLeadingSlash, parentKeys, parentParams) {
+  let match;
+  let childMatches;
+  let childIndex = 0;
+  let routepath = route.path || '';
+
+  if (routepath.charAt(0) === '/') {
+    if (ignoreLeadingSlash) {
+      routepath = routepath.substr(1);
+    }
+
+    ignoreLeadingSlash = true;
+  }
+
+  return {
+    next(routeToSkip) {
+      if (route === routeToSkip) {
+        return {
+          done: true
+        };
+      }
+
+      const children = route.__children = route.__children || route.children;
+
+      if (!match) {
+        match = matchPath(routepath, pathname, !children, parentKeys, parentParams);
+
+        if (match) {
+          return {
+            done: false,
+            value: {
+              route,
+              keys: match.keys,
+              params: match.params,
+              path: match.path
+            }
+          };
+        }
+      }
+
+      if (match && children) {
+        while (childIndex < children.length) {
+          if (!childMatches) {
+            const childRoute = children[childIndex];
+            childRoute.parent = route;
+            let matchedLength = match.path.length;
+
+            if (matchedLength > 0 && pathname.charAt(matchedLength) === '/') {
+              matchedLength += 1;
+            }
+
+            childMatches = matchRoute(childRoute, pathname.substr(matchedLength), ignoreLeadingSlash, match.keys, match.params);
+          }
+
+          const childMatch = childMatches.next(routeToSkip);
+
+          if (!childMatch.done) {
+            return {
+              done: false,
+              value: childMatch.value
+            };
+          }
+
+          childMatches = null;
+          childIndex++;
+        }
+      }
+
+      return {
+        done: true
+      };
+    }
+
+  };
+}
+/**
+ * Universal Router (https://www.kriasoft.com/universal-router/)
+ *
+ * Copyright (c) 2015-present Kriasoft.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+
+function resolveRoute(context) {
+  if (isFunction(context.route.action)) {
+    return context.route.action(context);
+  }
+
+  return undefined;
+}
+/**
+ * Universal Router (https://www.kriasoft.com/universal-router/)
+ *
+ * Copyright (c) 2015-present Kriasoft.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+
+function isChildRoute(parentRoute, childRoute) {
+  let route = childRoute;
+
+  while (route) {
+    route = route.parent;
+
+    if (route === parentRoute) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function generateErrorMessage(currentContext) {
+  let errorMessage = `Path '${currentContext.pathname}' is not properly resolved due to an error.`;
+  const routePath = (currentContext.route || {}).path;
+
+  if (routePath) {
+    errorMessage += ` Resolution had failed on route: '${routePath}'`;
+  }
+
+  return errorMessage;
+}
+
+function updateChainForRoute(context, match) {
+  const {
+    route,
+    path
+  } = match;
+
+  if (route && !route.__synthetic) {
+    const item = {
+      path,
+      route
+    };
+
+    if (!context.chain) {
+      context.chain = [];
+    } else {
+      // Discard old items
+      if (route.parent) {
+        let i = context.chain.length;
+
+        while (i-- && context.chain[i].route && context.chain[i].route !== route.parent) {
+          context.chain.pop();
+        }
+      }
+    }
+
+    context.chain.push(item);
+  }
+}
+/**
+ */
+
+
+class Resolver {
+  constructor(routes, options = {}) {
+    if (Object(routes) !== routes) {
+      throw new TypeError('Invalid routes');
+    }
+
+    this.baseUrl = options.baseUrl || '';
+    this.errorHandler = options.errorHandler;
+    this.resolveRoute = options.resolveRoute || resolveRoute;
+    this.context = Object.assign({
+      resolver: this
+    }, options.context);
+    this.root = Array.isArray(routes) ? {
+      path: '',
+      __children: routes,
+      parent: null,
+      __synthetic: true
+    } : routes;
+    this.root.parent = null;
+  }
+  /**
+   * Returns the current list of routes (as a shallow copy). Adding / removing
+   * routes to / from the returned array does not affect the routing config,
+   * but modifying the route objects does.
+   *
+   * @return {!Array<!Router.Route>}
+   */
+
+
+  getRoutes() {
+    return [...this.root.__children];
+  }
+  /**
+   * Sets the routing config (replacing the existing one).
+   *
+   * @param {!Array<!Router.Route>|!Router.Route} routes a single route or an array of those
+   *    (the array is shallow copied)
+   */
+
+
+  setRoutes(routes) {
+    ensureRoutes(routes);
+    const newRoutes = [...toArray(routes)];
+    this.root.__children = newRoutes;
+  }
+  /**
+   * Appends one or several routes to the routing config and returns the
+   * effective routing config after the operation.
+   *
+   * @param {!Array<!Router.Route>|!Router.Route} routes a single route or an array of those
+   *    (the array is shallow copied)
+   * @return {!Array<!Router.Route>}
+   * @protected
+   */
+
+
+  addRoutes(routes) {
+    ensureRoutes(routes);
+
+    this.root.__children.push(...toArray(routes));
+
+    return this.getRoutes();
+  }
+  /**
+   * Removes all existing routes from the routing config.
+   */
+
+
+  removeRoutes() {
+    this.setRoutes([]);
+  }
+  /**
+   * Asynchronously resolves the given pathname, i.e. finds all routes matching
+   * the pathname and tries resolving them one after another in the order they
+   * are listed in the routes config until the first non-null result.
+   *
+   * Returns a promise that is fulfilled with the return value of an object that consists of the first
+   * route handler result that returns something other than `null` or `undefined` and context used to get this result.
+   *
+   * If no route handlers return a non-null result, or if no route matches the
+   * given pathname the returned promise is rejected with a 'page not found'
+   * `Error`.
+   *
+   * @param {!string|!{pathname: !string}} pathnameOrContext the pathname to
+   *    resolve or a context object with a `pathname` property and other
+   *    properties to pass to the route resolver functions.
+   * @return {!Promise<any>}
+   */
+
+
+  resolve(pathnameOrContext) {
+    const context = Object.assign({}, this.context, isString(pathnameOrContext) ? {
+      pathname: pathnameOrContext
+    } : pathnameOrContext);
+    const match = matchRoute(this.root, this.__normalizePathname(context.pathname), this.baseUrl);
+    const resolve = this.resolveRoute;
+    let matches = null;
+    let nextMatches = null;
+    let currentContext = context;
+
+    function next(resume, parent = matches.value.route, prevResult) {
+      const routeToSkip = prevResult === null && matches.value.route;
+      matches = nextMatches || match.next(routeToSkip);
+      nextMatches = null;
+
+      if (!resume) {
+        if (matches.done || !isChildRoute(parent, matches.value.route)) {
+          nextMatches = matches;
+          return Promise.resolve(notFoundResult);
+        }
+      }
+
+      if (matches.done) {
+        return Promise.reject(getNotFoundError(context));
+      }
+
+      currentContext = Object.assign(currentContext ? {
+        chain: currentContext.chain ? currentContext.chain.slice(0) : []
+      } : {}, context, matches.value);
+      updateChainForRoute(currentContext, matches.value);
+      return Promise.resolve(resolve(currentContext)).then(resolution => {
+        if (resolution !== null && resolution !== undefined && resolution !== notFoundResult) {
+          currentContext.result = resolution.result || resolution;
+          return currentContext;
+        }
+
+        return next(resume, parent, resolution);
+      });
+    }
+
+    context.next = next;
+    return Promise.resolve().then(() => next(true, this.root)).catch(error => {
+      const errorMessage = generateErrorMessage(currentContext);
+
+      if (!error) {
+        error = new Error(errorMessage);
+      } else {
+        console.warn(errorMessage);
+      }
+
+      error.context = error.context || currentContext; // DOMException has its own code which is read-only
+
+      if (!(error instanceof DOMException)) {
+        error.code = error.code || 500;
+      }
+
+      if (this.errorHandler) {
+        currentContext.result = this.errorHandler(error);
+        return currentContext;
+      }
+
+      throw error;
+    });
+  }
+  /**
+   * URL constructor polyfill hook. Creates and returns an URL instance.
+   */
+
+
+  static __createUrl(url, base) {
+    return new URL(url, base);
+  }
+  /**
+   * If the baseUrl property is set, transforms the baseUrl and returns the full
+   * actual `base` string for using in the `new URL(path, base);` and for
+   * prepernding the paths with. The returned base ends with a trailing slash.
+   *
+   * Otherwise, returns empty string.
+   */
+
+
+  get __effectiveBaseUrl() {
+    return this.baseUrl ? this.constructor.__createUrl(this.baseUrl, document.baseURI || document.URL).href.replace(/[^\/]*$/, '') : '';
+  }
+  /**
+   * If the baseUrl is set, matches the pathname with the router’s baseUrl,
+   * and returns the local pathname with the baseUrl stripped out.
+   *
+   * If the pathname does not match the baseUrl, returns undefined.
+   *
+   * If the `baseUrl` is not set, returns the unmodified pathname argument.
+   */
+
+
+  __normalizePathname(pathname) {
+    if (!this.baseUrl) {
+      // No base URL, no need to transform the pathname.
+      return pathname;
+    }
+
+    const base = this.__effectiveBaseUrl;
+
+    const normalizedUrl = this.constructor.__createUrl(pathname, base).href;
+
+    if (normalizedUrl.slice(0, base.length) === base) {
+      return normalizedUrl.slice(base.length);
+    }
+  }
+
+}
+
+exports.Resolver = Resolver;
+Resolver.pathToRegexp = pathToRegexp_1;
+/**
+ * Universal Router (https://www.kriasoft.com/universal-router/)
+ *
+ * Copyright (c) 2015-present Kriasoft.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+const {
+  pathToRegexp: pathToRegexp$1
+} = Resolver;
+const cache$1 = new Map();
+
+function cacheRoutes(routesByName, route, routes) {
+  const name = route.name || route.component;
+
+  if (name) {
+    if (routesByName.has(name)) {
+      routesByName.get(name).push(route);
+    } else {
+      routesByName.set(name, [route]);
+    }
+  }
+
+  if (Array.isArray(routes)) {
+    for (let i = 0; i < routes.length; i++) {
+      const childRoute = routes[i];
+      childRoute.parent = route;
+      cacheRoutes(routesByName, childRoute, childRoute.__children || childRoute.children);
+    }
+  }
+}
+
+function getRouteByName(routesByName, routeName) {
+  const routes = routesByName.get(routeName);
+
+  if (routes && routes.length > 1) {
+    throw new Error(`Duplicate route with name "${routeName}".` + ` Try seting unique 'name' route properties.`);
+  }
+
+  return routes && routes[0];
+}
+
+function getRoutePath(route) {
+  let path = route.path;
+  path = Array.isArray(path) ? path[0] : path;
+  return path !== undefined ? path : '';
+}
+
+function generateUrls(router, options = {}) {
+  if (!(router instanceof Resolver)) {
+    throw new TypeError('An instance of Resolver is expected');
+  }
+
+  const routesByName = new Map();
+  return (routeName, params) => {
+    let route = getRouteByName(routesByName, routeName);
+
+    if (!route) {
+      routesByName.clear(); // clear cache
+
+      cacheRoutes(routesByName, router.root, router.root.__children);
+      route = getRouteByName(routesByName, routeName);
+
+      if (!route) {
+        throw new Error(`Route "${routeName}" not found`);
+      }
+    }
+
+    let regexp = cache$1.get(route.fullPath);
+
+    if (!regexp) {
+      let fullPath = getRoutePath(route);
+      let rt = route.parent;
+
+      while (rt) {
+        const path = getRoutePath(rt);
+
+        if (path) {
+          fullPath = path.replace(/\/$/, '') + '/' + fullPath.replace(/^\//, '');
+        }
+
+        rt = rt.parent;
+      }
+
+      const tokens = pathToRegexp$1.parse(fullPath);
+      const toPath = pathToRegexp$1.tokensToFunction(tokens);
+      const keys = Object.create(null);
+
+      for (let i = 0; i < tokens.length; i++) {
+        if (!isString(tokens[i])) {
+          keys[tokens[i].name] = true;
+        }
+      }
+
+      regexp = {
+        toPath,
+        keys
+      };
+      cache$1.set(fullPath, regexp);
+      route.fullPath = fullPath;
+    }
+
+    let url = regexp.toPath(params, options) || '/';
+
+    if (options.stringifyQueryParams && params) {
+      const queryParams = {};
+      const keys = Object.keys(params);
+
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+
+        if (!regexp.keys[key]) {
+          queryParams[key] = params[key];
+        }
+      }
+
+      const query = options.stringifyQueryParams(queryParams);
+
+      if (query) {
+        url += query.charAt(0) === '?' ? query : `?${query}`;
+      }
+    }
+
+    return url;
+  };
+}
+/**
+ * @typedef NavigationTrigger
+ * @type {object}
+ * @property {function()} activate
+ * @property {function()} inactivate
+ */
+
+/** @type {Array<NavigationTrigger>} */
+
+
+let triggers = [];
+
+function setNavigationTriggers(newTriggers) {
+  triggers.forEach(trigger => trigger.inactivate());
+  newTriggers.forEach(trigger => trigger.activate());
+  triggers = newTriggers;
+}
+
+const willAnimate = elem => {
+  const name = getComputedStyle(elem).getPropertyValue('animation-name');
+  return name && name !== 'none';
+};
+
+const waitForAnimation = (elem, cb) => {
+  const listener = () => {
+    elem.removeEventListener('animationend', listener);
+    cb();
+  };
+
+  elem.addEventListener('animationend', listener);
+};
+
+function animate(elem, className) {
+  elem.classList.add(className);
+  return new Promise(resolve => {
+    if (willAnimate(elem)) {
+      const rect = elem.getBoundingClientRect();
+      const size = `height: ${rect.bottom - rect.top}px; width: ${rect.right - rect.left}px`;
+      elem.setAttribute('style', `position: absolute; ${size}`);
+      waitForAnimation(elem, () => {
+        elem.classList.remove(className);
+        elem.removeAttribute('style');
+        resolve();
+      });
+    } else {
+      elem.classList.remove(className);
+      resolve();
+    }
+  });
+}
+
+const MAX_REDIRECT_COUNT = 256;
+
+function isResultNotEmpty(result) {
+  return result !== null && result !== undefined;
+}
+
+function copyContextWithoutNext(context) {
+  const copy = Object.assign({}, context);
+  delete copy.next;
+  return copy;
+}
+
+function createLocation({
+  pathname = '',
+  search = '',
+  hash = '',
+  chain = [],
+  params = {},
+  redirectFrom,
+  resolver
+}, route) {
+  const routes = chain.map(item => item.route);
+  return {
+    baseUrl: resolver && resolver.baseUrl || '',
+    pathname,
+    search,
+    hash,
+    routes,
+    route: route || routes.length && routes[routes.length - 1] || null,
+    params,
+    redirectFrom,
+    getUrl: (userParams = {}) => getPathnameForRouter(Router.pathToRegexp.compile(getMatchedPath(routes))(Object.assign({}, params, userParams)), resolver)
+  };
+}
+
+function createRedirect(context, pathname) {
+  const params = Object.assign({}, context.params);
+  return {
+    redirect: {
+      pathname,
+      from: context.pathname,
+      params
+    }
+  };
+}
+
+function renderElement(context, element) {
+  element.location = createLocation(context);
+  const index = context.chain.map(item => item.route).indexOf(context.route);
+  context.chain[index].element = element;
+  return element;
+}
+
+function runCallbackIfPossible(callback, args, thisArg) {
+  if (isFunction(callback)) {
+    return callback.apply(thisArg, args);
+  }
+}
+
+function amend(amendmentFunction, args, element) {
+  return amendmentResult => {
+    if (amendmentResult && (amendmentResult.cancel || amendmentResult.redirect)) {
+      return amendmentResult;
+    }
+
+    if (element) {
+      return runCallbackIfPossible(element[amendmentFunction], args, element);
+    }
+  };
+}
+
+function processNewChildren(newChildren, route) {
+  if (!Array.isArray(newChildren) && !isObject(newChildren)) {
+    throw new Error(log(`Incorrect "children" value for the route ${route.path}: expected array or object, but got ${newChildren}`));
+  }
+
+  route.__children = [];
+  const childRoutes = toArray(newChildren);
+
+  for (let i = 0; i < childRoutes.length; i++) {
+    ensureRoute(childRoutes[i]);
+
+    route.__children.push(childRoutes[i]);
+  }
+}
+
+function removeDomNodes(nodes) {
+  if (nodes && nodes.length) {
+    const parent = nodes[0].parentNode;
+
+    for (let i = 0; i < nodes.length; i++) {
+      parent.removeChild(nodes[i]);
+    }
+  }
+}
+
+function getPathnameForRouter(pathname, router) {
+  const base = router.__effectiveBaseUrl;
+  return base ? router.constructor.__createUrl(pathname.replace(/^\//, ''), base).pathname : pathname;
+}
+
+function getMatchedPath(chain) {
+  return chain.map(item => item.path).reduce((a, b) => {
+    if (b.length) {
+      return a.replace(/\/$/, '') + '/' + b.replace(/^\//, '');
+    }
+
+    return a;
+  }, '');
+}
+/**
+ * A simple client-side router for single-page applications. It uses
+ * express-style middleware and has a first-class support for Web Components and
+ * lazy-loading. Works great in Polymer and non-Polymer apps.
+ *
+ * Use `new Router(outlet, options)` to create a new Router instance.
+ *
+ * * The `outlet` parameter is a reference to the DOM node to render
+ *   the content into.
+ *
+ * * The `options` parameter is an optional object with options. The following
+ *   keys are supported:
+ *   * `baseUrl` — the initial value for [
+ *     the `baseUrl` property
+ *   ](#/classes/Router#property-baseUrl)
+ *
+ * The Router instance is automatically subscribed to navigation events
+ * on `window`.
+ *
+ * See [Live Examples](#/classes/Router/demos/demo/index.html) for the detailed usage demo and code snippets.
+ *
+ * See also detailed API docs for the following methods, for the advanced usage:
+ *
+ * * [setOutlet](#/classes/Router#method-setOutlet) – should be used to configure the outlet.
+ * * [setTriggers](#/classes/Router#method-setTriggers) – should be used to configure the navigation events.
+ * * [setRoutes](#/classes/Router#method-setRoutes) – should be used to configure the routes.
+ *
+ * Only `setRoutes` has to be called manually, others are automatically invoked when creating a new instance.
+ *
+ * @extends Resolver
+ * @demo demo/index.html
+ * @summary JavaScript class that renders different DOM content depending on
+ *    a given path. It can re-render when triggered or automatically on
+ *    'popstate' and / or 'click' events.
+ */
+
+
+class Router extends Resolver {
+  /**
+   * Creates a new Router instance with a given outlet, and
+   * automatically subscribes it to navigation events on the `window`.
+   * Using a constructor argument or a setter for outlet is equivalent:
+   *
+   * ```
+   * const router = new Router();
+   * router.setOutlet(outlet);
+   * ```
+   * @param {?Node=} outlet
+   * @param {?RouterOptions=} options
+   */
+  constructor(outlet, options) {
+    const baseElement = document.head.querySelector('base');
+    const baseHref = baseElement && baseElement.getAttribute('href');
+    super([], Object.assign({
+      // Default options
+      baseUrl: baseHref && Resolver.__createUrl(baseHref, document.URL).pathname.replace(/[^\/]*$/, '')
+    }, options));
+
+    this.resolveRoute = context => this.__resolveRoute(context);
+
+    const triggers = Router.NavigationTrigger;
+    Router.setTriggers.apply(Router, Object.keys(triggers).map(key => triggers[key]));
+    /**
+     * The base URL for all routes in the router instance. By default,
+     * if the base element exists in the `<head>`, vaadin-router
+     * takes the `<base href>` attribute value, resolves against current `document.URL`
+     * and gets the `pathname` from the result.
+     *
+     * @public
+     * @type {string}
+     */
+
+    this.baseUrl;
+    /**
+     * A promise that is settled after the current render cycle completes. If
+     * there is no render cycle in progress the promise is immediately settled
+     * with the last render cycle result.
+     *
+     * @public
+     * @type {!Promise<!RouterLocation>}
+     */
+
+    this.ready;
+    this.ready = Promise.resolve(outlet);
+    /**
+     * Contains read-only information about the current router location:
+     * pathname, active routes, parameters. See the
+     * [Location type declaration](#/classes/RouterLocation)
+     * for more details.
+     *
+     * @public
+     * @type {!RouterLocation}
+     */
+
+    this.location;
+    this.location = createLocation({
+      resolver: this
+    });
+    this.__lastStartedRenderId = 0;
+    this.__navigationEventHandler = this.__onNavigationEvent.bind(this);
+    this.setOutlet(outlet);
+    this.subscribe(); // Using WeakMap instead of WeakSet because WeakSet is not supported by IE11
+
+    this.__createdByRouter = new WeakMap();
+    this.__addedByRouter = new WeakMap();
+  }
+
+  __resolveRoute(context) {
+    const route = context.route;
+    let callbacks = Promise.resolve();
+
+    if (isFunction(route.children)) {
+      callbacks = callbacks.then(() => route.children(copyContextWithoutNext(context))).then(children => {
+        // The route.children() callback might have re-written the
+        // route.children property instead of returning a value
+        if (!isResultNotEmpty(children) && !isFunction(route.children)) {
+          children = route.children;
+        }
+
+        processNewChildren(children, route);
+      });
+    }
+
+    const commands = {
+      redirect: path => createRedirect(context, path),
+      component: component => {
+        const element = document.createElement(component);
+
+        this.__createdByRouter.set(element, true);
+
+        return element;
+      }
+    };
+    return callbacks.then(() => {
+      if (this.__isLatestRender(context)) {
+        return runCallbackIfPossible(route.action, [context, commands], route);
+      }
+    }).then(result => {
+      if (isResultNotEmpty(result)) {
+        // Actions like `() => import('my-view.js')` are not expected to
+        // end the resolution, despite the result is not empty. Checking
+        // the result with a whitelist of values that end the resolution.
+        if (result instanceof HTMLElement || result.redirect || result === notFoundResult) {
+          return result;
+        }
+      }
+
+      if (isString(route.redirect)) {
+        return commands.redirect(route.redirect);
+      }
+
+      if (route.bundle) {
+        return loadBundle(route.bundle).then(() => {}, () => {
+          throw new Error(log(`Bundle not found: ${route.bundle}. Check if the file name is correct`));
+        });
+      }
+    }).then(result => {
+      if (isResultNotEmpty(result)) {
+        return result;
+      }
+
+      if (isString(route.component)) {
+        return commands.component(route.component);
+      }
+    });
+  }
+  /**
+   * Sets the router outlet (the DOM node where the content for the current
+   * route is inserted). Any content pre-existing in the router outlet is
+   * removed at the end of each render pass.
+   *
+   * NOTE: this method is automatically invoked first time when creating a new Router instance.
+   *
+   * @param {?Node} outlet the DOM node where the content for the current route
+   *     is inserted.
+   */
+
+
+  setOutlet(outlet) {
+    if (outlet) {
+      this.__ensureOutlet(outlet);
+    }
+
+    this.__outlet = outlet;
+  }
+  /**
+   * Returns the current router outlet. The initial value is `undefined`.
+   *
+   * @return {?Node} the current router outlet (or `undefined`)
+   */
+
+
+  getOutlet() {
+    return this.__outlet;
+  }
+  /**
+   * Sets the routing config (replacing the existing one) and triggers a
+   * navigation event so that the router outlet is refreshed according to the
+   * current `window.location` and the new routing config.
+   *
+   * Each route object may have the following properties, listed here in the processing order:
+   * * `path` – the route path (relative to the parent route if any) in the
+   * [express.js syntax](https://expressjs.com/en/guide/routing.html#route-paths").
+   *
+   * * `children` – an array of nested routes or a function that provides this
+   * array at the render time. The function can be synchronous or asynchronous:
+   * in the latter case the render is delayed until the returned promise is
+   * resolved. The `children` function is executed every time when this route is
+   * being rendered. This allows for dynamic route structures (e.g. backend-defined),
+   * but it might have a performance impact as well. In order to avoid calling
+   * the function on subsequent renders, you can override the `children` property
+   * of the route object and save the calculated array there
+   * (via `context.route.children = [ route1, route2, ...];`).
+   * Parent routes are fully resolved before resolving the children. Children
+   * 'path' values are relative to the parent ones.
+   *
+   * * `action` – the action that is executed before the route is resolved.
+   * The value for this property should be a function, accepting `context`
+   * and `commands` parameters described below. If present, this function is
+   * always invoked first, disregarding of the other properties' presence.
+   * The action can return a result directly or within a `Promise`, which
+   * resolves to the result. If the action result is an `HTMLElement` instance,
+   * a `commands.component(name)` result, a `commands.redirect(path)` result,
+   * or a `context.next()` result, the current route resolution is finished,
+   * and other route config properties are ignored.
+   * See also **Route Actions** section in [Live Examples](#/classes/Router/demos/demo/index.html).
+   *
+   * * `redirect` – other route's path to redirect to. Passes all route parameters to the redirect target.
+   * The target route should also be defined.
+   * See also **Redirects** section in [Live Examples](#/classes/Router/demos/demo/index.html).
+   *
+   * * `bundle` – string containing the path to `.js` or `.mjs` bundle to load before resolving the route,
+   * or the object with "module" and "nomodule" keys referring to different bundles.
+   * Each bundle is only loaded once. If "module" and "nomodule" are set, only one bundle is loaded,
+   * depending on whether the browser supports ES modules or not.
+   * The property is ignored when either an `action` returns the result or `redirect` property is present.
+   * Any error, e.g. 404 while loading bundle will cause route resolution to throw.
+   * See also **Code Splitting** section in [Live Examples](#/classes/Router/demos/demo/index.html).
+   *
+   * * `component` – the tag name of the Web Component to resolve the route to.
+   * The property is ignored when either an `action` returns the result or `redirect` property is present.
+   * If route contains the `component` property (or an action that return a component)
+   * and its child route also contains the `component` property, child route's component
+   * will be rendered as a light dom child of a parent component.
+   *
+   * * `name` – the string name of the route to use in the
+   * [`router.urlForName(name, params)`](#/classes/Router#method-urlForName)
+   * navigation helper method.
+   *
+   * For any route function (`action`, `children`) defined, the corresponding `route` object is available inside the callback
+   * through the `this` reference. If you need to access it, make sure you define the callback as a non-arrow function
+   * because arrow functions do not have their own `this` reference.
+   *
+   * `context` object that is passed to `action` function holds the following properties:
+   * * `context.pathname` – string with the pathname being resolved
+   *
+   * * `context.search` – search query string
+   *
+   * * `context.hash` – hash string
+   *
+   * * `context.params` – object with route parameters
+   *
+   * * `context.route` – object that holds the route that is currently being rendered.
+   *
+   * * `context.next()` – function for asynchronously getting the next route
+   * contents from the resolution chain (if any)
+   *
+   * `commands` object that is passed to `action` function has
+   * the following methods:
+   *
+   * * `commands.redirect(path)` – function that creates a redirect data
+   * for the path specified.
+   *
+   * * `commands.component(component)` – function that creates a new HTMLElement
+   * with current context. Note: the component created by this function is reused if visiting the same path twice in row.
+   *
+   *
+   * @param {!Array<!Route>|!Route} routes a single route or an array of those
+   * @param {?boolean} skipRender configure the router but skip rendering the
+   *     route corresponding to the current `window.location` values
+   *
+   * @return {!Promise<!Node>}
+   */
+
+
+  setRoutes(routes, skipRender = false) {
+    this.__previousContext = undefined;
+    this.__urlForName = undefined;
+    super.setRoutes(routes);
+
+    if (!skipRender) {
+      this.__onNavigationEvent();
+    }
+
+    return this.ready;
+  }
+  /**
+   * Asynchronously resolves the given pathname and renders the resolved route
+   * component into the router outlet. If no router outlet is set at the time of
+   * calling this method, or at the time when the route resolution is completed,
+   * a `TypeError` is thrown.
+   *
+   * Returns a promise that is fulfilled with the router outlet DOM Node after
+   * the route component is created and inserted into the router outlet, or
+   * rejected if no route matches the given path.
+   *
+   * If another render pass is started before the previous one is completed, the
+   * result of the previous render pass is ignored.
+   *
+   * @param {!string|!{pathname: !string, search: ?string, hash: ?string}} pathnameOrContext
+   *    the pathname to render or a context object with a `pathname` property,
+   *    optional `search` and `hash` properties, and other properties
+   *    to pass to the resolver.
+   * @param {boolean=} shouldUpdateHistory
+   *    update browser history with the rendered location
+   * @return {!Promise<!Node>}
+   */
+
+
+  render(pathnameOrContext, shouldUpdateHistory) {
+    const renderId = ++this.__lastStartedRenderId;
+    const context = Object.assign({
+      search: '',
+      hash: ''
+    }, isString(pathnameOrContext) ? {
+      pathname: pathnameOrContext
+    } : pathnameOrContext, {
+      __renderId: renderId
+    }); // Find the first route that resolves to a non-empty result
+
+    this.ready = this.resolve(context) // Process the result of this.resolve() and handle all special commands:
+    // (redirect / prevent / component). If the result is a 'component',
+    // then go deeper and build the entire chain of nested components matching
+    // the pathname. Also call all 'on before' callbacks along the way.
+    .then(context => this.__fullyResolveChain(context)).then(context => {
+      if (this.__isLatestRender(context)) {
+        const previousContext = this.__previousContext; // Check if the render was prevented and make an early return in that case
+
+        if (context === previousContext) {
+          // Replace the history with the previous context
+          // to make sure the URL stays the same.
+          this.__updateBrowserHistory(previousContext, true);
+
+          return this.location;
+        }
+
+        this.location = createLocation(context);
+
+        if (shouldUpdateHistory) {
+          // Replace only if first render redirects, so that we don’t leave
+          // the redirecting record in the history
+          this.__updateBrowserHistory(context, renderId === 1);
+        }
+
+        fireRouterEvent('location-changed', {
+          router: this,
+          location: this.location
+        }); // Skip detaching/re-attaching there are no render changes
+
+        if (context.__skipAttach) {
+          this.__copyUnchangedElements(context, previousContext);
+
+          this.__previousContext = context;
+          return this.location;
+        }
+
+        this.__addAppearingContent(context, previousContext);
+
+        const animationDone = this.__animateIfNeeded(context);
+
+        this.__runOnAfterEnterCallbacks(context);
+
+        this.__runOnAfterLeaveCallbacks(context, previousContext);
+
+        return animationDone.then(() => {
+          if (this.__isLatestRender(context)) {
+            // If there is another render pass started after this one,
+            // the 'disappearing content' would be removed when the other
+            // render pass calls `this.__addAppearingContent()`
+            this.__removeDisappearingContent();
+
+            this.__previousContext = context;
+            return this.location;
+          }
+        });
+      }
+    }).catch(error => {
+      if (renderId === this.__lastStartedRenderId) {
+        if (shouldUpdateHistory) {
+          this.__updateBrowserHistory(context);
+        }
+
+        removeDomNodes(this.__outlet && this.__outlet.children);
+        this.location = createLocation(Object.assign(context, {
+          resolver: this
+        }));
+        fireRouterEvent('error', Object.assign({
+          router: this,
+          error
+        }, context));
+        throw error;
+      }
+    });
+    return this.ready;
+  } // `topOfTheChainContextBeforeRedirects` is a context coming from Resolver.resolve().
+  // It would contain a 'redirect' route or the first 'component' route that
+  // matched the pathname. There might be more child 'component' routes to be
+  // resolved and added into the chain. This method would find and add them.
+  // `contextBeforeRedirects` is the context containing such a child component
+  // route. It's only necessary when this method is called recursively (otherwise
+  // it's the same as the 'top of the chain' context).
+  //
+  // Apart from building the chain of child components, this method would also
+  // handle 'redirect' routes, call 'onBefore' callbacks and handle 'prevent'
+  // and 'redirect' callback results.
+
+
+  __fullyResolveChain(topOfTheChainContextBeforeRedirects, contextBeforeRedirects = topOfTheChainContextBeforeRedirects) {
+    return this.__findComponentContextAfterAllRedirects(contextBeforeRedirects) // `contextAfterRedirects` is always a context with an `HTMLElement` result
+    // In other cases the promise gets rejected and .then() is not called
+    .then(contextAfterRedirects => {
+      const redirectsHappened = contextAfterRedirects !== contextBeforeRedirects;
+      const topOfTheChainContextAfterRedirects = redirectsHappened ? contextAfterRedirects : topOfTheChainContextBeforeRedirects;
+      const matchedPath = getPathnameForRouter(getMatchedPath(contextAfterRedirects.chain), contextAfterRedirects.resolver);
+      const isFound = matchedPath === contextAfterRedirects.pathname; // Recursive method to try matching more child and sibling routes
+
+      const findNextContextIfAny = (context, parent = context.route, prevResult) => {
+        return context.next(undefined, parent, prevResult).then(nextContext => {
+          if (nextContext === null || nextContext === notFoundResult) {
+            // Next context is not found in children, ...
+            if (isFound) {
+              // ...but original context is already fully matching - use it
+              return context;
+            } else if (parent.parent !== null) {
+              // ...and there is no full match yet - step up to check siblings
+              return findNextContextIfAny(context, parent.parent, nextContext);
+            } else {
+              return nextContext;
+            }
+          }
+
+          return nextContext;
+        });
+      };
+
+      return findNextContextIfAny(contextAfterRedirects).then(nextContext => {
+        if (nextContext === null || nextContext === notFoundResult) {
+          throw getNotFoundError(topOfTheChainContextAfterRedirects);
+        }
+
+        return nextContext && nextContext !== notFoundResult && nextContext !== contextAfterRedirects ? this.__fullyResolveChain(topOfTheChainContextAfterRedirects, nextContext) : this.__amendWithOnBeforeCallbacks(contextAfterRedirects);
+      });
+    });
+  }
+
+  __findComponentContextAfterAllRedirects(context) {
+    const result = context.result;
+
+    if (result instanceof HTMLElement) {
+      renderElement(context, result);
+      return Promise.resolve(context);
+    } else if (result.redirect) {
+      return this.__redirect(result.redirect, context.__redirectCount, context.__renderId).then(context => this.__findComponentContextAfterAllRedirects(context));
+    } else if (result instanceof Error) {
+      return Promise.reject(result);
+    } else {
+      return Promise.reject(new Error(log(`Invalid route resolution result for path "${context.pathname}". ` + `Expected redirect object or HTML element, but got: "${logValue(result)}". ` + `Double check the action return value for the route.`)));
+    }
+  }
+
+  __amendWithOnBeforeCallbacks(contextWithFullChain) {
+    return this.__runOnBeforeCallbacks(contextWithFullChain).then(amendedContext => {
+      if (amendedContext === this.__previousContext || amendedContext === contextWithFullChain) {
+        return amendedContext;
+      }
+
+      return this.__fullyResolveChain(amendedContext);
+    });
+  }
+
+  __runOnBeforeCallbacks(newContext) {
+    const previousContext = this.__previousContext || {};
+    const previousChain = previousContext.chain || [];
+    const newChain = newContext.chain;
+    let callbacks = Promise.resolve();
+
+    const prevent = () => ({
+      cancel: true
+    });
+
+    const redirect = pathname => createRedirect(newContext, pathname);
+
+    newContext.__divergedChainIndex = 0;
+    newContext.__skipAttach = false;
+
+    if (previousChain.length) {
+      for (let i = 0; i < Math.min(previousChain.length, newChain.length); i = ++newContext.__divergedChainIndex) {
+        if (previousChain[i].route !== newChain[i].route || previousChain[i].path !== newChain[i].path && previousChain[i].element !== newChain[i].element || !this.__isReusableElement(previousChain[i].element, newChain[i].element)) {
+          break;
+        }
+      } // Skip re-attaching and notifications if element and chain do not change
+
+
+      newContext.__skipAttach = // Same route chain
+      newChain.length === previousChain.length && newContext.__divergedChainIndex == newChain.length && // Same element
+      this.__isReusableElement(newContext.result, previousContext.result);
+
+      if (newContext.__skipAttach) {
+        // execute onBeforeLeave for changed segment element when skipping attach
+        for (let i = newChain.length - 1; i >= 0; i--) {
+          callbacks = this.__runOnBeforeLeaveCallbacks(callbacks, newContext, {
+            prevent
+          }, previousChain[i]);
+        } // execute onBeforeEnter for changed segment element when skipping attach
+
+
+        for (let i = 0; i < newChain.length; i++) {
+          callbacks = this.__runOnBeforeEnterCallbacks(callbacks, newContext, {
+            prevent,
+            redirect
+          }, newChain[i]);
+          previousChain[i].element.location = createLocation(newContext, previousChain[i].route);
+        }
+      } else {
+        // execute onBeforeLeave when NOT skipping attach
+        for (let i = previousChain.length - 1; i >= newContext.__divergedChainIndex; i--) {
+          callbacks = this.__runOnBeforeLeaveCallbacks(callbacks, newContext, {
+            prevent
+          }, previousChain[i]);
+        }
+      }
+    } // execute onBeforeEnter when NOT skipping attach
+
+
+    if (!newContext.__skipAttach) {
+      for (let i = 0; i < newChain.length; i++) {
+        if (i < newContext.__divergedChainIndex) {
+          if (i < previousChain.length && previousChain[i].element) {
+            previousChain[i].element.location = createLocation(newContext, previousChain[i].route);
+          }
+        } else {
+          callbacks = this.__runOnBeforeEnterCallbacks(callbacks, newContext, {
+            prevent,
+            redirect
+          }, newChain[i]);
+
+          if (newChain[i].element) {
+            newChain[i].element.location = createLocation(newContext, newChain[i].route);
+          }
+        }
+      }
+    }
+
+    return callbacks.then(amendmentResult => {
+      if (amendmentResult) {
+        if (amendmentResult.cancel) {
+          this.__previousContext.__renderId = newContext.__renderId;
+          return this.__previousContext;
+        }
+
+        if (amendmentResult.redirect) {
+          return this.__redirect(amendmentResult.redirect, newContext.__redirectCount, newContext.__renderId);
+        }
+      }
+
+      return newContext;
+    });
+  }
+
+  __runOnBeforeLeaveCallbacks(callbacks, newContext, commands, chainElement) {
+    const location = createLocation(newContext);
+    return callbacks.then(result => {
+      if (this.__isLatestRender(newContext)) {
+        const afterLeaveFunction = amend('onBeforeLeave', [location, commands, this], chainElement.element);
+        return afterLeaveFunction(result);
+      }
+    }).then(result => {
+      if (!(result || {}).redirect) {
+        return result;
+      }
+    });
+  }
+
+  __runOnBeforeEnterCallbacks(callbacks, newContext, commands, chainElement) {
+    const location = createLocation(newContext, chainElement.route);
+    return callbacks.then(result => {
+      if (this.__isLatestRender(newContext)) {
+        const beforeEnterFunction = amend('onBeforeEnter', [location, commands, this], chainElement.element);
+        return beforeEnterFunction(result);
+      }
+    });
+  }
+
+  __isReusableElement(element, otherElement) {
+    if (element && otherElement) {
+      return this.__createdByRouter.get(element) && this.__createdByRouter.get(otherElement) ? element.localName === otherElement.localName : element === otherElement;
+    }
+
+    return false;
+  }
+
+  __isLatestRender(context) {
+    return context.__renderId === this.__lastStartedRenderId;
+  }
+
+  __redirect(redirectData, counter, renderId) {
+    if (counter > MAX_REDIRECT_COUNT) {
+      throw new Error(log(`Too many redirects when rendering ${redirectData.from}`));
+    }
+
+    return this.resolve({
+      pathname: this.urlForPath(redirectData.pathname, redirectData.params),
+      redirectFrom: redirectData.from,
+      __redirectCount: (counter || 0) + 1,
+      __renderId: renderId
+    });
+  }
+
+  __ensureOutlet(outlet = this.__outlet) {
+    if (!(outlet instanceof Node)) {
+      throw new TypeError(log(`Expected router outlet to be a valid DOM Node (but got ${outlet})`));
+    }
+  }
+
+  __updateBrowserHistory({
+    pathname,
+    search = '',
+    hash = ''
+  }, replace) {
+    if (window.location.pathname !== pathname || window.location.search !== search || window.location.hash !== hash) {
+      const changeState = replace ? 'replaceState' : 'pushState';
+      window.history[changeState](null, document.title, pathname + search + hash);
+      window.dispatchEvent(new PopStateEvent('popstate', {
+        state: 'vaadin-router-ignore'
+      }));
+    }
+  }
+
+  __copyUnchangedElements(context, previousContext) {
+    // Find the deepest common parent between the last and the new component
+    // chains. Update references for the unchanged elements in the new chain
+    let deepestCommonParent = this.__outlet;
+
+    for (let i = 0; i < context.__divergedChainIndex; i++) {
+      const unchangedElement = previousContext && previousContext.chain[i].element;
+
+      if (unchangedElement) {
+        if (unchangedElement.parentNode === deepestCommonParent) {
+          context.chain[i].element = unchangedElement;
+          deepestCommonParent = unchangedElement;
+        } else {
+          break;
+        }
+      }
+    }
+
+    return deepestCommonParent;
+  }
+
+  __addAppearingContent(context, previousContext) {
+    this.__ensureOutlet(); // If the previous 'entering' animation has not completed yet,
+    // stop it and remove that content from the DOM before adding new one.
+
+
+    this.__removeAppearingContent(); // Copy reusable elements from the previousContext to current
+
+
+    const deepestCommonParent = this.__copyUnchangedElements(context, previousContext); // Keep two lists of DOM elements:
+    //  - those that should be removed once the transition animation is over
+    //  - and those that should remain
+
+
+    this.__appearingContent = [];
+    this.__disappearingContent = Array.from(deepestCommonParent.children).filter( // Only remove layout content that was added by router
+    e => this.__addedByRouter.get(e) && // Do not remove the result element to avoid flickering
+    e !== context.result); // Add new elements (starting after the deepest common parent) to the DOM.
+    // That way only the components that are actually different between the two
+    // locations are added to the DOM (and those that are common remain in the
+    // DOM without first removing and then adding them again).
+
+    let parentElement = deepestCommonParent;
+
+    for (let i = context.__divergedChainIndex; i < context.chain.length; i++) {
+      const elementToAdd = context.chain[i].element;
+
+      if (elementToAdd) {
+        parentElement.appendChild(elementToAdd);
+
+        this.__addedByRouter.set(elementToAdd, true);
+
+        if (parentElement === deepestCommonParent) {
+          this.__appearingContent.push(elementToAdd);
+        }
+
+        parentElement = elementToAdd;
+      }
+    }
+  }
+
+  __removeDisappearingContent() {
+    if (this.__disappearingContent) {
+      removeDomNodes(this.__disappearingContent);
+    }
+
+    this.__disappearingContent = null;
+    this.__appearingContent = null;
+  }
+
+  __removeAppearingContent() {
+    if (this.__disappearingContent && this.__appearingContent) {
+      removeDomNodes(this.__appearingContent);
+      this.__disappearingContent = null;
+      this.__appearingContent = null;
+    }
+  }
+
+  __runOnAfterLeaveCallbacks(currentContext, targetContext) {
+    if (!targetContext) {
+      return;
+    } // REVERSE iteration: from Z to A
+
+
+    for (let i = targetContext.chain.length - 1; i >= currentContext.__divergedChainIndex; i--) {
+      if (!this.__isLatestRender(currentContext)) {
+        break;
+      }
+
+      const currentComponent = targetContext.chain[i].element;
+
+      if (!currentComponent) {
+        continue;
+      }
+
+      try {
+        const location = createLocation(currentContext);
+        runCallbackIfPossible(currentComponent.onAfterLeave, [location, {}, targetContext.resolver], currentComponent);
+      } finally {
+        if (this.__disappearingContent.indexOf(currentComponent) > -1) {
+          removeDomNodes(currentComponent.children);
+        }
+      }
+    }
+  }
+
+  __runOnAfterEnterCallbacks(currentContext) {
+    // forward iteration: from A to Z
+    for (let i = currentContext.__divergedChainIndex; i < currentContext.chain.length; i++) {
+      if (!this.__isLatestRender(currentContext)) {
+        break;
+      }
+
+      const currentComponent = currentContext.chain[i].element || {};
+      const location = createLocation(currentContext, currentContext.chain[i].route);
+      runCallbackIfPossible(currentComponent.onAfterEnter, [location, {}, currentContext.resolver], currentComponent);
+    }
+  }
+
+  __animateIfNeeded(context) {
+    const from = (this.__disappearingContent || [])[0];
+    const to = (this.__appearingContent || [])[0];
+    const promises = [];
+    const chain = context.chain;
+    let config;
+
+    for (let i = chain.length; i > 0; i--) {
+      if (chain[i - 1].route.animate) {
+        config = chain[i - 1].route.animate;
+        break;
+      }
+    }
+
+    if (from && to && config) {
+      const leave = isObject(config) && config.leave || 'leaving';
+      const enter = isObject(config) && config.enter || 'entering';
+      promises.push(animate(from, leave));
+      promises.push(animate(to, enter));
+    }
+
+    return Promise.all(promises).then(() => context);
+  }
+  /**
+   * Subscribes this instance to navigation events on the `window`.
+   *
+   * NOTE: beware of resource leaks. For as long as a router instance is
+   * subscribed to navigation events, it won't be garbage collected.
+   */
+
+
+  subscribe() {
+    window.addEventListener('vaadin-router-go', this.__navigationEventHandler);
+  }
+  /**
+   * Removes the subscription to navigation events created in the `subscribe()`
+   * method.
+   */
+
+
+  unsubscribe() {
+    window.removeEventListener('vaadin-router-go', this.__navigationEventHandler);
+  }
+
+  __onNavigationEvent(event) {
+    const {
+      pathname,
+      search,
+      hash
+    } = event ? event.detail : window.location;
+
+    if (isString(this.__normalizePathname(pathname))) {
+      if (event && event.preventDefault) {
+        event.preventDefault();
+      }
+
+      this.render({
+        pathname,
+        search,
+        hash
+      }, true);
+    }
+  }
+  /**
+   * Configures what triggers Router navigation events:
+   *  - `POPSTATE`: popstate events on the current `window`
+   *  - `CLICK`: click events on `<a>` links leading to the current page
+   *
+   * This method is invoked with the pre-configured values when creating a new Router instance.
+   * By default, both `POPSTATE` and `CLICK` are enabled. This setup is expected to cover most of the use cases.
+   *
+   * See the `router-config.js` for the default navigation triggers config. Based on it, you can
+   * create the own one and only import the triggers you need, instead of pulling in all the code,
+   * e.g. if you want to handle `click` differently.
+   *
+   * See also **Navigation Triggers** section in [Live Examples](#/classes/Router/demos/demo/index.html).
+   *
+   * @param {...NavigationTrigger} triggers
+   */
+
+
+  static setTriggers(...triggers) {
+    setNavigationTriggers(triggers);
+  }
+  /**
+   * Generates a URL for the route with the given name, optionally performing
+   * substitution of parameters.
+   *
+   * The route is searched in all the Router instances subscribed to
+   * navigation events.
+   *
+   * **Note:** For child route names, only array children are considered.
+   * It is not possible to generate URLs using a name for routes set with
+   * a children function.
+   *
+   * @function urlForName
+   * @param {!string} name the route name or the route’s `component` name.
+   * @param {Params=} params Optional object with route path parameters.
+   * Named parameters are passed by name (`params[name] = value`), unnamed
+   * parameters are passed by index (`params[index] = value`).
+   *
+   * @return {string}
+   */
+
+
+  urlForName(name, params) {
+    if (!this.__urlForName) {
+      this.__urlForName = generateUrls(this);
+    }
+
+    return getPathnameForRouter(this.__urlForName(name, params), this);
+  }
+  /**
+   * Generates a URL for the given route path, optionally performing
+   * substitution of parameters.
+   *
+   * @param {!string} path string route path declared in [express.js syntax](https://expressjs.com/en/guide/routing.html#route-paths").
+   * @param {Params=} params Optional object with route path parameters.
+   * Named parameters are passed by name (`params[name] = value`), unnamed
+   * parameters are passed by index (`params[index] = value`).
+   *
+   * @return {string}
+   */
+
+
+  urlForPath(path, params) {
+    return getPathnameForRouter(Router.pathToRegexp.compile(path)(params), this);
+  }
+  /**
+   * Triggers navigation to a new path. Returns a boolean without waiting until
+   * the navigation is complete. Returns `true` if at least one `Router`
+   * has handled the navigation (was subscribed and had `baseUrl` matching
+   * the `path` argument), otherwise returns `false`.
+   *
+   * @param {!string|!{pathname: !string, search: (string|undefined), hash: (string|undefined)}} path
+   *   a new in-app path string, or an URL-like object with `pathname`
+   *   string property, and optional `search` and `hash` string properties.
+   * @return {boolean}
+   */
+
+
+  static go(path) {
+    const {
+      pathname,
+      search,
+      hash
+    } = isString(path) ? this.__createUrl(path, 'http://a') // some base to omit origin
+    : path;
+    return fireRouterEvent('go', {
+      pathname,
+      search,
+      hash
+    });
+  }
+
+}
+
+exports.Router = Router;
+const DEV_MODE_CODE_REGEXP = /\/\*\*\s+vaadin-dev-mode:start([\s\S]*)vaadin-dev-mode:end\s+\*\*\//i;
+const FlowClients = window.Vaadin && window.Vaadin.Flow && window.Vaadin.Flow.clients;
+
+function isMinified() {
+  function test() {
+    /** vaadin-dev-mode:start
+    return false;
+    vaadin-dev-mode:end **/
+    return true;
+  }
+
+  return uncommentAndRun(test);
+}
+
+function isDevelopmentMode() {
+  try {
+    if (isForcedDevelopmentMode()) {
+      return true;
+    }
+
+    if (!isLocalhost()) {
+      return false;
+    }
+
+    if (FlowClients) {
+      return !isFlowProductionMode();
+    }
+
+    return !isMinified();
+  } catch (e) {
+    // Some error in this code, assume production so no further actions will be taken
+    return false;
+  }
+}
+
+function isForcedDevelopmentMode() {
+  return localStorage.getItem("vaadin.developmentmode.force");
+}
+
+function isLocalhost() {
+  return ["localhost", "127.0.0.1"].indexOf(window.location.hostname) >= 0;
+}
+
+function isFlowProductionMode() {
+  if (FlowClients) {
+    const productionModeApps = Object.keys(FlowClients).map(key => FlowClients[key]).filter(client => client.productionMode);
+
+    if (productionModeApps.length > 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function uncommentAndRun(callback, args) {
+  if (typeof callback !== 'function') {
+    return;
+  }
+
+  const match = DEV_MODE_CODE_REGEXP.exec(callback.toString());
+
+  if (match) {
+    try {
+      // requires CSP: script-src 'unsafe-eval'
+      callback = new Function(match[1]);
+    } catch (e) {
+      // eat the exception
+      console.log('vaadin-development-mode-detector: uncommentAndRun() failed', e);
+    }
+  }
+
+  return callback(args);
+} // A guard against polymer-modulizer removing the window.Vaadin
+// initialization above.
+
+
+window['Vaadin'] = window['Vaadin'] || {};
+/**
+ * Inspects the source code of the given `callback` function for
+ * specially-marked _commented_ code. If such commented code is found in the
+ * callback source, uncomments and runs that code instead of the callback
+ * itself. Otherwise runs the callback as is.
+ *
+ * The optional arguments are passed into the callback / uncommented code,
+ * the result is returned.
+ *
+ * See the `isMinified()` function source code in this file for an example.
+ *
+ */
+
+const runIfDevelopmentMode = function (callback, args) {
+  if (window.Vaadin.developmentMode) {
+    return uncommentAndRun(callback, args);
+  }
+};
+
+if (window.Vaadin.developmentMode === undefined) {
+  window.Vaadin.developmentMode = isDevelopmentMode();
+}
+/* This file is autogenerated from src/vaadin-usage-statistics.tpl.html */
+
+
+function maybeGatherAndSendStats() {
+  /** vaadin-dev-mode:start
+  (function () {
+  'use strict';
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+  } : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
+  var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+  };
+  var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+   return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+  }();
+  var getPolymerVersion = function getPolymerVersion() {
+  return window.Polymer && window.Polymer.version;
+  };
+  var StatisticsGatherer = function () {
+  function StatisticsGatherer(logger) {
+    classCallCheck(this, StatisticsGatherer);
+     this.now = new Date().getTime();
+    this.logger = logger;
+  }
+   createClass(StatisticsGatherer, [{
+    key: 'frameworkVersionDetectors',
+    value: function frameworkVersionDetectors() {
+      return {
+        'Flow': function Flow() {
+          if (window.Vaadin && window.Vaadin.Flow && window.Vaadin.Flow.clients) {
+            var flowVersions = Object.keys(window.Vaadin.Flow.clients).map(function (key) {
+              return window.Vaadin.Flow.clients[key];
+            }).filter(function (client) {
+              return client.getVersionInfo;
+            }).map(function (client) {
+              return client.getVersionInfo().flow;
+            });
+            if (flowVersions.length > 0) {
+              return flowVersions[0];
+            }
+          }
+        },
+        'Vaadin Framework': function VaadinFramework() {
+          if (window.vaadin && window.vaadin.clients) {
+            var frameworkVersions = Object.values(window.vaadin.clients).filter(function (client) {
+              return client.getVersionInfo;
+            }).map(function (client) {
+              return client.getVersionInfo().vaadinVersion;
+            });
+            if (frameworkVersions.length > 0) {
+              return frameworkVersions[0];
+            }
+          }
+        },
+        'AngularJs': function AngularJs() {
+          if (window.angular && window.angular.version && window.angular.version) {
+            return window.angular.version.full;
+          }
+        },
+        'Angular': function Angular() {
+          if (window.ng) {
+            var tags = document.querySelectorAll("[ng-version]");
+            if (tags.length > 0) {
+              return tags[0].getAttribute("ng-version");
+            }
+            return "Unknown";
+          }
+        },
+        'Backbone.js': function BackboneJs() {
+          if (window.Backbone) {
+            return window.Backbone.VERSION;
+          }
+        },
+        'React': function React() {
+          var reactSelector = '[data-reactroot], [data-reactid]';
+          if (!!document.querySelector(reactSelector)) {
+            // React does not publish the version by default
+            return "unknown";
+          }
+        },
+        'Ember': function Ember() {
+          if (window.Em && window.Em.VERSION) {
+            return window.Em.VERSION;
+          } else if (window.Ember && window.Ember.VERSION) {
+            return window.Ember.VERSION;
+          }
+        },
+        'jQuery': function (_jQuery) {
+          function jQuery() {
+            return _jQuery.apply(this, arguments);
+          }
+           jQuery.toString = function () {
+            return _jQuery.toString();
+          };
+           return jQuery;
+        }(function () {
+          if (typeof jQuery === 'function' && jQuery.prototype.jquery !== undefined) {
+            return jQuery.prototype.jquery;
+          }
+        }),
+        'Polymer': function Polymer() {
+          var version = getPolymerVersion();
+          if (version) {
+            return version;
+          }
+        },
+        'LitElement': function LitElement() {
+          var version = window.litElementVersions && window.litElementVersions[0];
+          if (version) {
+            return version;
+          }
+        },
+        'LitHtml': function LitHtml() {
+          var version = window.litHtmlVersions && window.litHtmlVersions[0];
+          if (version) {
+            return version;
+          }
+        },
+        'Vue.js': function VueJs() {
+          if (window.Vue) {
+            return window.Vue.version;
+          }
+        }
+      };
+    }
+  }, {
+    key: 'getUsedVaadinElements',
+    value: function getUsedVaadinElements(elements) {
+      var version = getPolymerVersion();
+      var elementClasses = void 0;
+      // NOTE: In case you edit the code here, YOU MUST UPDATE any statistics reporting code in Flow.
+      // Check all locations calling the method getEntries() in
+      // https://github.com/vaadin/flow/blob/master/flow-server/src/main/java/com/vaadin/flow/internal/UsageStatistics.java#L106
+      // Currently it is only used by BootstrapHandler.
+      if (version && version.indexOf('2') === 0) {
+        // Polymer 2: components classes are stored in window.Vaadin
+        elementClasses = Object.keys(window.Vaadin).map(function (c) {
+          return window.Vaadin[c];
+        }).filter(function (c) {
+          return c.is;
+        });
+      } else {
+        // Polymer 3: components classes are stored in window.Vaadin.registrations
+        elementClasses = window.Vaadin.registrations || [];
+      }
+      elementClasses.forEach(function (klass) {
+        var version = klass.version ? klass.version : "0.0.0";
+        elements[klass.is] = { version: version };
+      });
+    }
+  }, {
+    key: 'getUsedVaadinThemes',
+    value: function getUsedVaadinThemes(themes) {
+      ['Lumo', 'Material'].forEach(function (themeName) {
+        var theme;
+        var version = getPolymerVersion();
+        if (version && version.indexOf('2') === 0) {
+          // Polymer 2: themes are stored in window.Vaadin
+          theme = window.Vaadin[themeName];
+        } else {
+          // Polymer 3: themes are stored in custom element registry
+          theme = customElements.get('vaadin-' + themeName.toLowerCase() + '-styles');
+        }
+        if (theme && theme.version) {
+          themes[themeName] = { version: theme.version };
+        }
+      });
+    }
+  }, {
+    key: 'getFrameworks',
+    value: function getFrameworks(frameworks) {
+      var detectors = this.frameworkVersionDetectors();
+      Object.keys(detectors).forEach(function (framework) {
+        var detector = detectors[framework];
+        try {
+          var version = detector();
+          if (version) {
+            frameworks[framework] = { version: version };
+          }
+        } catch (e) {}
+      });
+    }
+  }, {
+    key: 'gather',
+    value: function gather(storage) {
+      var storedStats = storage.read();
+      var gatheredStats = {};
+      var types = ["elements", "frameworks", "themes"];
+       types.forEach(function (type) {
+        gatheredStats[type] = {};
+        if (!storedStats[type]) {
+          storedStats[type] = {};
+        }
+      });
+       var previousStats = JSON.stringify(storedStats);
+       this.getUsedVaadinElements(gatheredStats.elements);
+      this.getFrameworks(gatheredStats.frameworks);
+      this.getUsedVaadinThemes(gatheredStats.themes);
+       var now = this.now;
+      types.forEach(function (type) {
+        var keys = Object.keys(gatheredStats[type]);
+        keys.forEach(function (key) {
+          if (!storedStats[type][key] || _typeof(storedStats[type][key]) != _typeof({})) {
+            storedStats[type][key] = { firstUsed: now };
+          }
+          // Discards any previously logged version number
+          storedStats[type][key].version = gatheredStats[type][key].version;
+          storedStats[type][key].lastUsed = now;
+        });
+      });
+       var newStats = JSON.stringify(storedStats);
+      storage.write(newStats);
+      if (newStats != previousStats && Object.keys(storedStats).length > 0) {
+        this.logger.debug("New stats: " + newStats);
+      }
+    }
+  }]);
+  return StatisticsGatherer;
+  }();
+  var StatisticsStorage = function () {
+  function StatisticsStorage(key) {
+    classCallCheck(this, StatisticsStorage);
+     this.key = key;
+  }
+   createClass(StatisticsStorage, [{
+    key: 'read',
+    value: function read() {
+      var localStorageStatsString = localStorage.getItem(this.key);
+      try {
+        return JSON.parse(localStorageStatsString ? localStorageStatsString : '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+  }, {
+    key: 'write',
+    value: function write(data) {
+      localStorage.setItem(this.key, data);
+    }
+  }, {
+    key: 'clear',
+    value: function clear() {
+      localStorage.removeItem(this.key);
+    }
+  }, {
+    key: 'isEmpty',
+    value: function isEmpty() {
+      var storedStats = this.read();
+      var empty = true;
+      Object.keys(storedStats).forEach(function (key) {
+        if (Object.keys(storedStats[key]).length > 0) {
+          empty = false;
+        }
+      });
+       return empty;
+    }
+  }]);
+  return StatisticsStorage;
+  }();
+  var StatisticsSender = function () {
+  function StatisticsSender(url, logger) {
+    classCallCheck(this, StatisticsSender);
+     this.url = url;
+    this.logger = logger;
+  }
+   createClass(StatisticsSender, [{
+    key: 'send',
+    value: function send(data, errorHandler) {
+      var logger = this.logger;
+       if (navigator.onLine === false) {
+        logger.debug("Offline, can't send");
+        errorHandler();
+        return;
+      }
+      logger.debug("Sending data to " + this.url);
+       var req = new XMLHttpRequest();
+      req.withCredentials = true;
+      req.addEventListener("load", function () {
+        // Stats sent, nothing more to do
+        logger.debug("Response: " + req.responseText);
+      });
+      req.addEventListener("error", function () {
+        logger.debug("Send failed");
+        errorHandler();
+      });
+      req.addEventListener("abort", function () {
+        logger.debug("Send aborted");
+        errorHandler();
+      });
+      req.open("POST", this.url);
+      req.setRequestHeader("Content-Type", "application/json");
+      req.send(data);
+    }
+  }]);
+  return StatisticsSender;
+  }();
+  var StatisticsLogger = function () {
+  function StatisticsLogger(id) {
+    classCallCheck(this, StatisticsLogger);
+     this.id = id;
+  }
+   createClass(StatisticsLogger, [{
+    key: '_isDebug',
+    value: function _isDebug() {
+      return localStorage.getItem("vaadin." + this.id + ".debug");
+    }
+  }, {
+    key: 'debug',
+    value: function debug(msg) {
+      if (this._isDebug()) {
+        console.info(this.id + ": " + msg);
+      }
+    }
+  }]);
+  return StatisticsLogger;
+  }();
+  var UsageStatistics = function () {
+  function UsageStatistics() {
+    classCallCheck(this, UsageStatistics);
+     this.now = new Date();
+    this.timeNow = this.now.getTime();
+    this.gatherDelay = 10; // Delay between loading this file and gathering stats
+    this.initialDelay = 24 * 60 * 60;
+     this.logger = new StatisticsLogger("statistics");
+    this.storage = new StatisticsStorage("vaadin.statistics.basket");
+    this.gatherer = new StatisticsGatherer(this.logger);
+    this.sender = new StatisticsSender("https://tools.vaadin.com/usage-stats/submit", this.logger);
+  }
+   createClass(UsageStatistics, [{
+    key: 'maybeGatherAndSend',
+    value: function maybeGatherAndSend() {
+      var _this = this;
+       if (localStorage.getItem(UsageStatistics.optOutKey)) {
+        return;
+      }
+      this.gatherer.gather(this.storage);
+      setTimeout(function () {
+        _this.maybeSend();
+      }, this.gatherDelay * 1000);
+    }
+  }, {
+    key: 'lottery',
+    value: function lottery() {
+      return true;
+    }
+  }, {
+    key: 'currentMonth',
+    value: function currentMonth() {
+      return this.now.getYear() * 12 + this.now.getMonth();
+    }
+  }, {
+    key: 'maybeSend',
+    value: function maybeSend() {
+      var firstUse = Number(localStorage.getItem(UsageStatistics.firstUseKey));
+      var monthProcessed = Number(localStorage.getItem(UsageStatistics.monthProcessedKey));
+       if (!firstUse) {
+        // Use a grace period to avoid interfering with tests, incognito mode etc
+        firstUse = this.timeNow;
+        localStorage.setItem(UsageStatistics.firstUseKey, firstUse);
+      }
+       if (this.timeNow < firstUse + this.initialDelay * 1000) {
+        this.logger.debug("No statistics will be sent until the initial delay of " + this.initialDelay + "s has passed");
+        return;
+      }
+      if (this.currentMonth() <= monthProcessed) {
+        this.logger.debug("This month has already been processed");
+        return;
+      }
+      localStorage.setItem(UsageStatistics.monthProcessedKey, this.currentMonth());
+      // Use random sampling
+      if (this.lottery()) {
+        this.logger.debug("Congratulations, we have a winner!");
+      } else {
+        this.logger.debug("Sorry, no stats from you this time");
+        return;
+      }
+       this.send();
+    }
+  }, {
+    key: 'send',
+    value: function send() {
+      // Ensure we have the latest data
+      this.gatherer.gather(this.storage);
+       // Read, send and clean up
+      var data = this.storage.read();
+      data["firstUse"] = Number(localStorage.getItem(UsageStatistics.firstUseKey));
+      data["usageStatisticsVersion"] = UsageStatistics.version;
+      var info = 'This request contains usage statistics gathered from the application running in development mode. \n\nStatistics gathering is automatically disabled and excluded from production builds.\n\nFor details and to opt-out, see https://github.com/vaadin/vaadin-usage-statistics.\n\n\n\n';
+      var self = this;
+      this.sender.send(info + JSON.stringify(data), function () {
+        // Revert the 'month processed' flag
+        localStorage.setItem(UsageStatistics.monthProcessedKey, self.currentMonth() - 1);
+      });
+    }
+  }], [{
+    key: 'version',
+    get: function get$1() {
+      return '2.1.0';
+    }
+  }, {
+    key: 'firstUseKey',
+    get: function get$1() {
+      return 'vaadin.statistics.firstuse';
+    }
+  }, {
+    key: 'monthProcessedKey',
+    get: function get$1() {
+      return 'vaadin.statistics.monthProcessed';
+    }
+  }, {
+    key: 'optOutKey',
+    get: function get$1() {
+      return 'vaadin.statistics.optout';
+    }
+  }]);
+  return UsageStatistics;
+  }();
+  try {
+  window.Vaadin = window.Vaadin || {};
+  window.Vaadin.usageStatsChecker = window.Vaadin.usageStatsChecker || new UsageStatistics();
+  window.Vaadin.usageStatsChecker.maybeGatherAndSend();
+  } catch (e) {
+  // Intentionally ignored as this is not a problem in the app being developed
+  }
+  }());
+   vaadin-dev-mode:end **/
+}
+
+const usageStatistics = function () {
+  if (typeof runIfDevelopmentMode === 'function') {
+    return runIfDevelopmentMode(maybeGatherAndSendStats);
+  }
+};
+
+window.Vaadin = window.Vaadin || {};
+window.Vaadin.registrations = window.Vaadin.registrations || [];
+window.Vaadin.registrations.push({
+  is: '@vaadin/router',
+  version: '1.7.2'
+});
+usageStatistics();
+Router.NavigationTrigger = {
+  POPSTATE,
+  CLICK
+};
+},{}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _multipleFiles = _interopRequireDefault(require("./js/multipleFiles.js"));
 
 require("./components/hello-world.js");
 
+require("./js/theme-selector.js");
+
+var _router = require("@vaadin/router");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log("Hello Again", _multipleFiles.default); //console.log(process.env.NODE_ENV);
-},{"./js/multipleFiles.js":"js/multipleFiles.js","./components/hello-world.js":"components/hello-world.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+console.log("Hello Again", _multipleFiles.default);
+console.log("development");
+// Initalize App Router (Vaadin Router)
+window.addEventListener('load', function () {
+  initRouter();
+});
+
+function initRouter() {
+  var router = new _router.Router(document.querySelector('main'));
+  router.setRoutes([{
+    path: '/',
+    component: 'hello-world'
+  }]);
+}
+},{"./js/multipleFiles.js":"js/multipleFiles.js","./components/hello-world.js":"components/hello-world.js","./js/theme-selector.js":"js/theme-selector.js","@vaadin/router":"../node_modules/@vaadin/router/dist/vaadin-router.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -17595,7 +22566,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59640" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61608" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
