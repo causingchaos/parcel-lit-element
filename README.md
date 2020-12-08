@@ -72,7 +72,7 @@ $npm run dev     - dev server on http://localhost:1234
 </br>
 $npm run build   - build script with parcel (bundle package into build folder)
 </br>
-$npm run build:server  - runs server using http-server (run build first)
+$npm run build:server  - runs server using http-server (run build first) https://www.npmjs.com/package/http-server
 ***
 
 *stretch goals*
