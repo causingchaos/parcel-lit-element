@@ -4,6 +4,7 @@ Note*: DOES NOT SUPPORT IE or OLD EDGE
 
 *Packager*:
 Parcel no-config bundler (https://parceljs.org/getting_started.html)
+</br>
 
 *Framework*
 Webcomponents - LitElement (https://lit-element.polymer-project.org/)
