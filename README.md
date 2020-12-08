@@ -17,12 +17,16 @@ Webcomponents - LitElement (https://lit-element.polymer-project.org/)
 Note: This uses the shadow dom, and web component standard(s)
 </br>
 
-* WebComponents (shadow dom compatiable) *
+*WebComponents (shadow dom compatiable)*
+</br>
 Vaadin-components (https://vaadin.com/components)
+</br>
 UI5 components (https://sap.github.io/ui5-webcomponents/)  TO BE ADDED
+</br>
 Elix components (https://component.kitchen/elix) TO BE ADDED
+</br>
 
-*Styles
+*Styles*
 </br>
 Since styles from other components can't penetrate the shadowDOM of other components, a global theme for base colors needs to be defined, i.e. Vaadin lumo base theme.
 </br>
