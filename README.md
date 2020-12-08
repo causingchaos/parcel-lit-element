@@ -72,11 +72,12 @@ $npm run dev     - dev server on http://localhost:1234
 </br>
 $npm run build   - build script with parcel (bundle package into build folder)
 </br>
+$npm run build:server  - runs server using http-server (run build first)
 ***
 
 *stretch goals*
 </br>
-[] Add server.js, and add new script npm run build:server -- build project with parcel, then run nodeJS server on port 8080.
+[x] Add server.js, and add new script npm run build:server -- build project with parcel, then run nodeJS server on port 8080.
 </br>
 [] Create typescript clone of this base config (parcel-lit-element-ts)
 </br>
