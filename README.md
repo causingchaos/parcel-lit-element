@@ -7,61 +7,61 @@ Note*: DOES NOT SUPPORT IE or OLD EDGE
 
 *Packager*:
 </br>
-Parcel no-config bundler (https://parceljs.org/getting_started.html)
+[x] Parcel no-config bundler (https://parceljs.org/getting_started.html)
 </br>
 
 *Framework*
 </br>
-Webcomponents - LitElement (https://lit-element.polymer-project.org/)
+[x] Webcomponents - LitElement (https://lit-element.polymer-project.org/)
 </br>
 Note: This uses the shadow dom, and web component standard(s)
 </br>
 
 *WebComponents (shadow dom compatiable)*
 </br>
-Vaadin-components (https://vaadin.com/components)
+[x] Vaadin-components (https://vaadin.com/components)
 </br>
-UI5 components (https://sap.github.io/ui5-webcomponents/)  TO BE ADDED
+[] UI5 components (https://sap.github.io/ui5-webcomponents/)  TO BE ADDED
 </br>
-Elix components (https://component.kitchen/elix) TO BE ADDED
+[] Elix components (https://component.kitchen/elix) TO BE ADDED
 </br>
 
 *Styles*
 </br>
 Since styles from other components can't penetrate the shadowDOM of other components, a global theme for base colors needs to be defined, i.e. Vaadin lumo base theme.
 </br>
-Vaadin lumo base theme (https://vaadin.com/docs/themes/lumo/lumo-overview.html)
+[x] Vaadin lumo base theme (https://vaadin.com/docs/themes/lumo/lumo-overview.html)
 </br>
-CSS templates (LitElement) defined in .JS files.
+[x] CSS templates (LitElement) defined in .JS files.
 </br>
 
 *Router*
 </br>
-vaadin-router (https://vaadin.com/router)
+[x] vaadin-router (https://vaadin.com/router)
 </br>
 
 *State management*
 </br>
-Mobx v5  (https://mobx.js.org/README.html) -- TO BE ADDED
+[] Mobx v5  (https://mobx.js.org/README.html) -- TO BE ADDED
 </br>
 
-*Validation*
+*Form/API call Validation*
 </br>
-Joi -- (https://joi.dev/) -- TO BE ADDED
+[] Joi -- (https://joi.dev/) -- TO BE ADDED
 </br>
 
 *Component management utility*
 </br>
-Storybook (https://storybook.js.org/)  -- TO BE ADDED
+[] Storybook (https://storybook.js.org/)  -- TO BE ADDED
 </br>
 
 *Code Base*
 </br>
-99% Javascript ES6+
+[x] 99% Javascript ES6+
 </br>
-1% HTML
+[x] 1% HTML
 </br>
-CSS JS templated (LitElement built in)
+[x] CSS JS templated (LitElement built in)
 </br>
 
 **Getting Started
@@ -78,5 +78,5 @@ $npm run build   - build script with parcel (bundle package into build folder)
 </br>
 [] Add server.js, and add new script npm run build:server -- build project with parcel, then run nodeJS server on port 8080.
 </br>
-[] Add typescript clone of this base config
+[] Create typescript clone of this base config (parcel-lit-element-ts)
 </br>
